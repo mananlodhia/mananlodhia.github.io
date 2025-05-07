@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cyberfolio | Manan Lodhia</title>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
     :root {
       --primary: #0a0a0a;
@@ -86,9 +85,12 @@
 
     .tool-icon, .hobbies-gallery img {
       width: 100%;
+      max-width: 120px;
+      height: auto;
       border-radius: 6px;
       border: 1px solid #e5e7eb;
       background-color: var(--card-bg);
+      padding: 5px;
     }
 
     .contact-links a {
@@ -115,6 +117,7 @@
   </style>
 </head>
 <body>
+
   <section id="intro">
     <div class="header">
       <div class="header-text">
@@ -130,7 +133,7 @@
           </ul>
         </div>
       </div>
-      <img src="https://via.placeholder.com/150" alt="Manan Lodhia">
+      <img src="images/manan-profile.jpg" alt="Manan Lodhia">
     </div>
   </section>
 
@@ -138,21 +141,21 @@
     <h2>Professional Timeline</h2>
     <div class="roadmap">
       <div class="entry">
-        <img src="https://via.placeholder.com/60" alt="Intact Logo">
+        <img src="images/intact-logo.png" alt="Intact Logo">
         <div>
           <h3>Security Analyst</h3>
           <p>Intact Financial • 2022–Present</p>
         </div>
       </div>
       <div class="entry">
-        <img src="https://via.placeholder.com/60" alt="LCM Logo">
+        <img src="images/lcm-logo.png" alt="LCM Logo">
         <div>
           <h3>Jr. Security Analyst</h3>
           <p>LCM Security • 2021–2022</p>
         </div>
       </div>
       <div class="entry">
-        <img src="https://via.placeholder.com/60" alt="HDFC Logo">
+        <img src="images/hdfc-logo.png" alt="HDFC Logo">
         <div>
           <h3>Cyber Risk Manager</h3>
           <p>HDFC Bank • 2018–2020</p>
@@ -164,20 +167,45 @@
   <section id="skills">
     <h2>Technical Toolkit</h2>
     <div class="grid">
-      <img src="https://via.placeholder.com/150x100?text=SIEM" alt="SIEM" class="tool-icon">
-      <img src="https://via.placeholder.com/150x100?text=EDR" alt="EDR" class="tool-icon">
-      <img src="https://via.placeholder.com/150x100?text=TIP" alt="TIP" class="tool-icon">
-      <img src="https://via.placeholder.com/150x100?text=Python+Bash" alt="Python" class="tool-icon">
+      <div>
+        <h3>SIEM</h3>
+        <div class="grid">
+          <img src="images/fortisiem.png" alt="FortiSIEM" class="tool-icon">
+          <img src="images/sentinel.png" alt="Microsoft Sentinel" class="tool-icon">
+          <img src="images/qradar.png" alt="QRadar" class="tool-icon">
+        </div>
+      </div>
+      <div>
+        <h3>EDR</h3>
+        <div class="grid">
+          <img src="images/crowdstrike.png" alt="CrowdStrike" class="tool-icon">
+          <img src="images/defender.png" alt="Microsoft Defender" class="tool-icon">
+        </div>
+      </div>
+      <div>
+        <h3>TIP</h3>
+        <div class="grid">
+          <img src="images/anomali.png" alt="Anomali" class="tool-icon">
+          <img src="images/mandiant.png" alt="Mandiant" class="tool-icon">
+        </div>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <div class="grid">
+          <img src="images/python.png" alt="Python" class="tool-icon">
+          <img src="images/bash.png" alt="Bash" class="tool-icon">
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="hobbies">
     <h2>Outside of Work</h2>
     <div class="hobbies-gallery">
-      <img src="https://via.placeholder.com/150x100?text=Anime" alt="Anime">
-      <img src="https://via.placeholder.com/150x100?text=Photography" alt="Photography">
-      <img src="https://via.placeholder.com/150x100?text=Threat+Research" alt="Threat Research">
-      <img src="https://via.placeholder.com/150x100?text=Hiking" alt="Hiking">
+      <img src="images/anime.jpg" alt="Anime">
+      <img src="images/photography.jpg" alt="Photography">
+      <img src="images/threat-research.jpg" alt="Threat Research">
+      <img src="images/hiking.jpg" alt="Hiking">
     </div>
   </section>
 
@@ -191,7 +219,8 @@
   </section>
 
   <footer>
-    <p>"The quieter you become, the more you are able to hear."</p>
+    <p>\"The quieter you become, the more you are able to hear.\"</p>
   </footer>
+
 </body>
 </html>
