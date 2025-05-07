@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manan Lodhia | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberfolio | Manan Lodhia</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
 
+  <div id="background"></div>
+
   <section id="intro">
-    <h1>Hi, I'm Manan Lodhia 👋</h1>
-    <p>Cybersecurity Specialist with 5+ years in SOC, IR, Threat Hunting & CTI.</p>
+    <h1><span class="typewriter"></span></h1>
+    <p>Cybersecurity Analyst | Threat Hunter | Defender of Digital Frontiers</p>
   </section>
 
   <section id="timeline">
-    <h2>Career Timeline</h2>
+    <h2 data-aos="fade-up">Career Timeline</h2>
     <ul>
-      <li><strong>2022–Present:</strong> Security Analyst, Intact Financial</li>
-      <li><strong>2021–2022:</strong> Jr. Security Analyst, LCM Security</li>
-      <li><strong>2018–2020:</strong> Cyber Risk Manager, HDFC Bank</li>
+      <li data-aos="fade-right"><strong>2022–Present:</strong> Security Analyst, Intact Financial</li>
+      <li data-aos="fade-left"><strong>2021–2022:</strong> Jr. Security Analyst, LCM Security</li>
+      <li data-aos="fade-right"><strong>2018–2020:</strong> Cyber Risk Manager, HDFC Bank</li>
     </ul>
   </section>
 
   <section id="skills">
-    <h2>Technical Toolkit</h2>
-    <ul>
-      <li>SIEM: FortiSIEM, Sentinel, QRadar</li>
-      <li>EDR: CrowdStrike, Defender for Endpoint</li>
-      <li>TIPs: Anomali, Mandiant</li>
-      <li>Languages: Python, Bash</li>
-    </ul>
+    <h2 data-aos="fade-up">Technical Toolkit</h2>
+    <div class="grid">
+      <div class="tool" data-aos="flip-left">SIEM: FortiSIEM, Sentinel</div>
+      <div class="tool" data-aos="flip-right">EDR: CrowdStrike, Defender</div>
+      <div class="tool" data-aos="flip-left">TIPs: Anomali, Mandiant</div>
+      <div class="tool" data-aos="flip-right">Languages: Python, Bash</div>
+    </div>
   </section>
 
   <section id="hobbies">
-    <h2>Hobbies</h2>
-    <p>Anime lover 🎌 | Photography 📸 | Exploring Threat Reports 🕵️‍♂️ | Hiking ⛰️</p>
+    <h2 data-aos="fade-up">Hobbies</h2>
+    <p data-aos="fade-in">Anime lover 🎌 | Photography 📸 | Exploring Threat Reports 🕵️‍♂️ | Hiking ⛰️</p>
   </section>
 
   <section id="contact">
-    <h2>Connect with Me</h2>
-    <p>
-      <a href="https://www.linkedin.com/in/mananlodhia">LinkedIn</a> | 
-      <a href="mailto:manan.lodhia@outlook.com">Email</a> |
-      <a href="https://github.com/mananlodhia">GitHub</a>
-    </p>
+    <h2 data-aos="fade-up">Connect</h2>
+    <pre data-aos="zoom-in">
+> root@cyberfolio:~$ <a href="mailto:manan@email.com">Email</a>
+> root@cyberfolio:~$ <a href="https://www.linkedin.com/in/mananlodhia">LinkedIn</a>
+> root@cyberfolio:~$ <a href="https://github.com/yourusername">GitHub</a>
+    </pre>
   </section>
 
+  <footer>
+    <p>"The quieter you become, the more you are able to hear."</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const txt = "Hi, I'm Manan Lodhia.";
+    let i = 0;
+    function typeWriter() {
+      if (i < txt.length) {
+        document.querySelector(".typewriter").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
 </body>
 </html>
-
