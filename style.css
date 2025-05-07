@@ -1,1 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1, h2 {
+  color: #38bdf8;
+}
+
+a {
+  color: #facc15;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
