@@ -4,41 +4,204 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cyberfolio | Manan Lodhia</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #38bdf8;
+    }
+
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(#1e293b, #0f172a);
+      z-index: -1;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .profile-pic {
+      width: 120px;
+      border-radius: 50%;
+      border: 3px solid #38bdf8;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .typewriter {
+      font-size: 2rem;
+      white-space: nowrap;
+      border-right: 2px solid #38bdf8;
+      overflow: hidden;
+      display: inline-block;
+      animation: blink-caret 1s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #38bdf8; }
+    }
+
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 30px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .roadmap::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #38bdf8;
+    }
+
+    .entry {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    .entry img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .grid, .hobbies-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .tool-icon, .hobby img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .tool-icon:hover, .hobby img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+    }
+
+    pre {
+      background: #1e1b4b;
+      padding: 20px;
+      color: #facc15;
+      border-left: 4px solid #38bdf8;
+      overflow-x: auto;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-style: italic;
+      color: #64748b;
+    }
+  </style>
 </head>
 <body>
 
   <div id="background"></div>
 
   <section id="intro">
+    <img src="https://via.placeholder.com/150" alt="Manan Lodhia" class="profile-pic">
     <h1><span class="typewriter"></span></h1>
     <p>Cybersecurity Analyst | Threat Hunter | Defender of Digital Frontiers</p>
   </section>
 
   <section id="timeline">
-    <h2 data-aos="fade-up">Career Timeline</h2>
-    <ul>
-      <li data-aos="fade-right"><strong>2022–Present:</strong> Security Analyst, Intact Financial</li>
-      <li data-aos="fade-left"><strong>2021–2022:</strong> Jr. Security Analyst, LCM Security</li>
-      <li data-aos="fade-right"><strong>2018–2020:</strong> Cyber Risk Manager, HDFC Bank</li>
-    </ul>
+    <h2 data-aos="fade-up">Career Roadmap</h2>
+    <div class="roadmap">
+      <div class="entry" data-aos="fade-right" data-aos-delay="100">
+        <img src="https://via.placeholder.com/60" alt="Intact Logo">
+        <h3>Security Analyst</h3>
+        <p>Intact Financial<br><small>2022–Present</small></p>
+      </div>
+      <div class="entry" data-aos="fade-left" data-aos-delay="200">
+        <img src="https://via.placeholder.com/60" alt="LCM Logo">
+        <h3>Jr. Security Analyst</h3>
+        <p>LCM Security<br><small>2021–2022</small></p>
+      </div>
+      <div class="entry" data-aos="fade-right" data-aos-delay="300">
+        <img src="https://via.placeholder.com/60" alt="HDFC Logo">
+        <h3>Cyber Risk Manager</h3>
+        <p>HDFC Bank<br><small>2018–2020</small></p>
+      </div>
+    </div>
   </section>
 
   <section id="skills">
     <h2 data-aos="fade-up">Technical Toolkit</h2>
     <div class="grid">
-      <div class="tool" data-aos="flip-left">SIEM: FortiSIEM, Sentinel</div>
-      <div class="tool" data-aos="flip-right">EDR: CrowdStrike, Defender</div>
-      <div class="tool" data-aos="flip-left">TIPs: Anomali, Mandiant</div>
-      <div class="tool" data-aos="flip-right">Languages: Python, Bash</div>
+      <img src="https://via.placeholder.com/150x100?text=SIEM" alt="SIEM" class="tool-icon" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://via.placeholder.com/150x100?text=EDR" alt="EDR" class="tool-icon" data-aos="zoom-in" data-aos-delay="200">
+      <img src="https://via.placeholder.com/150x100?text=TIP" alt="TIP" class="tool-icon" data-aos="zoom-in" data-aos-delay="300">
+      <img src="https://via.placeholder.com/150x100?text=Python+Bash" alt="Python" class="tool-icon" data-aos="zoom-in" data-aos-delay="400">
     </div>
   </section>
 
   <section id="hobbies">
     <h2 data-aos="fade-up">Hobbies</h2>
-    <p data-aos="fade-in">Anime lover 🎌 | Photography 📸 | Exploring Threat Reports 🕵️‍♂️ | Hiking ⛰️</p>
+    <div class="hobbies-gallery">
+      <img src="https://via.placeholder.com/150x100?text=Anime" alt="Anime" data-aos="fade-up" data-aos-delay="100">
+      <img src="https://via.placeholder.com/150x100?text=Photography" alt="Photography" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://via.placeholder.com/150x100?text=Threat+Research" alt="Threat Research" data-aos="fade-up" data-aos-delay="300">
+      <img src="https://via.placeholder.com/150x100?text=Hiking" alt="Hiking" data-aos="fade-up" data-aos-delay="400">
+    </div>
+  </section>
+
+  <section id="what-i-bring">
+    <h2 data-aos="fade-up">What I Bring to Your Team</h2>
+    <p data-aos="fade-in">
+      As a hands-on cybersecurity professional, I bring deep technical expertise, a proactive mindset, and a proven ability to secure enterprise environments. Whether it's building detection rules, conducting threat hunts, or improving IR processes — I take pride in solving problems, mentoring teams, and staying ahead of threats.
+    </p>
   </section>
 
   <section id="contact">
