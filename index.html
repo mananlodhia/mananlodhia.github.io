@@ -67,7 +67,7 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
 
-    .roadmap, .grid, .hobbies-gallery {
+    .roadmap, .hobbies-gallery {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
@@ -89,7 +89,33 @@
       object-fit: contain;
     }
 
-    .tool-icon, .hobbies-gallery img {
+    .toolkit-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .toolkit-category h3 {
+      margin-bottom: 10px;
+    }
+
+    .toolkit-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tool-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      padding: 5px;
+      border: 1px solid #e5e7eb;
+      background-color: var(--card-bg);
+      border-radius: 50%;
+    }
+
+    .hobbies-gallery img {
       width: 100%;
       max-width: 120px;
       height: auto;
@@ -171,33 +197,33 @@
 
   <section id="skills">
     <h2>Technical Toolkit</h2>
-    <div class="grid">
-      <div>
+    <div class="toolkit-columns">
+      <div class="toolkit-category">
         <h3>SIEM</h3>
-        <div class="grid">
+        <div class="toolkit-logos">
           <img src="images/fortisiem.png" alt="FortiSIEM" class="tool-icon">
           <img src="images/sent.png" alt="Microsoft Sentinel" class="tool-icon">
           <img src="images/elst.jpg" alt="Elastic" class="tool-icon">
         </div>
       </div>
-      <div>
+      <div class="toolkit-category">
         <h3>EDR</h3>
-        <div class="grid">
+        <div class="toolkit-logos">
           <img src="images/crwd.png" alt="CrowdStrike Falcon" class="tool-icon">
           <img src="images/th.jpeg" alt="Microsoft Defender" class="tool-icon">
           <img src="images/fire.png" alt="FireEye" class="tool-icon">
         </div>
       </div>
-      <div>
+      <div class="toolkit-category">
         <h3>TIP</h3>
-        <div class="grid">
+        <div class="toolkit-logos">
           <img src="images/ano.jpg" alt="Anomali" class="tool-icon">
           <img src="images/mandiant.png" alt="Mandiant" class="tool-icon">
         </div>
       </div>
-      <div>
+      <div class="toolkit-category">
         <h3>Scripting</h3>
-        <div class="grid">
+        <div class="toolkit-logos">
           <img src="images/pyt.png" alt="Python" class="tool-icon">
           <img src="images/bash.png" alt="Bash" class="tool-icon">
         </div>
