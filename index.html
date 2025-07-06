@@ -14,6 +14,11 @@
       --light-text: #1e293b;
       --muted: #6b7280;
       --card-bg: #f9fafb;
+      --section-bg: #f3f6fa;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -23,6 +28,8 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
     }
 
     section {
@@ -31,9 +38,17 @@
       margin: auto;
     }
 
+    section:not(:first-of-type) {
+      background: var(--section-bg);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    }
+
     h1, h2, h3 {
       color: var(--accent);
       font-weight: 600;
+      margin-top: 0;
     }
 
     .header {
@@ -62,19 +77,91 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
 
+    .contact-links {
+      margin-top: 20px;
+    }
+
     .contact-links a {
       display: inline-block;
       margin-right: 15px;
-      padding: 10px 15px;
+      padding: 10px 18px;
       border: 1px solid var(--accent);
       border-radius: 6px;
       color: var(--accent);
       text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      outline: none;
     }
 
-    .contact-links a:hover {
+    .contact-links a:hover, .contact-links a:focus {
       background: var(--accent);
       color: #fff;
+      box-shadow: 0 2px 8px rgba(0,120,180,0.13);
+      text-decoration: underline;
+    }
+
+    .timeline-container {
+      position: relative;
+      padding: 60px 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .timeline-item.left .timeline-content {
+      order: 1;
+      text-align: right;
+      width: 45%;
+    }
+    .timeline-item.left .timeline-logo {
+      order: 2;
+      display: flex;
+      justify-content: flex-start;
+      width: 45%;
+    }
+    .timeline-item.right .timeline-logo {
+      order: 1;
+      display: flex;
+      justify-content: flex-end;
+      width: 45%;
+    }
+    .timeline-item.right .timeline-content {
+      order: 2;
+      text-align: left;
+      width: 45%;
+    }
+    .timeline-logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
 
     footer {
@@ -82,14 +169,43 @@
       padding: 30px;
       color: var(--muted);
       font-style: italic;
+      background: none;
+      border: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .timeline-item, .timeline-item.left, .timeline-item.right {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+      }
+      .timeline-content, .timeline-logo {
+        width: 100%!important;
+        text-align: center!important;
+        justify-content: center!important;
+      }
+      .timeline-container {
+        padding: 35px 0;
+      }
+      .timeline-list {
+        gap: 40px;
+      }
+      section {
+        padding: 32px 8px;
+      }
     }
   </style>
 </head>
 <body>
-
   <!-- Intro -->
   <section id="intro">
-    <div class="header">
+    <header class="header">
       <div class="header-text">
         <h1>Manan Lodhia</h1>
         <p>Cybersecurity Analyst | Threat Hunter | Defender of Digital Frontiers</p>
@@ -104,52 +220,50 @@
         </div>
       </div>
       <img src="images/manan-profile.jpeg" alt="Manan Lodhia">
-    </div>
+    </header>
   </section>
 
   <!-- Timeline -->
   <section id="timeline">
     <h2 data-aos="fade-up">Professional Timeline</h2>
-    <div style="position: relative; padding: 60px 0;">
-      <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: var(--accent); transform: translateX(-50%);"></div>
-      <div style="display: flex; flex-direction: column; gap: 60px;">
-
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      <div class="timeline-list">
         <!-- Intact -->
-        <div style="display: flex; justify-content: space-between; align-items: center;" data-aos="fade-right">
-          <div style="width: 45%; text-align: right;">
-            <h3 style="margin: 0; color: var(--accent);">Intact Financial Corporation</h3>
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <h3>Intact Financial Corporation</h3>
             <p style="margin: 0; font-size: 0.9rem;">2022 – Present</p>
             <p style="margin: 0.5rem 0 0;">Security Analyst</p>
           </div>
-          <div style="width: 45%; display: flex; justify-content: flex-start;">
-            <img src="images/nt.jpg" alt="Intact Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc;">
+          <div class="timeline-logo">
+            <img src="images/nt.jpg" alt="Intact Logo">
           </div>
         </div>
 
         <!-- LCM -->
-        <div style="display: flex; justify-content: space-between; align-items: center;" data-aos="fade-left">
-          <div style="width: 45%; display: flex; justify-content: flex-end;">
-            <img src="images/lcm.png" alt="LCM Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc;">
+        <div class="timeline-item right" data-aos="fade-left">
+          <div class="timeline-logo">
+            <img src="images/lcm.png" alt="LCM Logo">
           </div>
-          <div style="width: 45%; text-align: left;">
-            <h3 style="margin: 0; color: var(--accent);">LCM Security</h3>
+          <div class="timeline-content">
+            <h3>LCM Security</h3>
             <p style="margin: 0; font-size: 0.9rem;">2021 – 2022</p>
             <p style="margin: 0.5rem 0 0;">Jr. Security Analyst</p>
           </div>
         </div>
 
         <!-- HDFC -->
-        <div style="display: flex; justify-content: space-betw; align-items: center;" data-aos="fade-right">
-          <div style="width: 45%; text-align: right;">
-            <h3 style="margin: 0; color: var(--accent);">HDFC Bank</h3>
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <h3>HDFC Bank</h3>
             <p style="margin: 0; font-size: 0.9rem;">2018 – 2020</p>
             <p style="margin: 0.5rem 0 0;">Cyber Risk Manager</p>
           </div>
-          <div style="width: 45%; display: flex; justify-content: flex-start;">
-            <img src="images/hdf.jpg" alt="HDFC Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc;">
+          <div class="timeline-logo">
+            <img src="images/hdf.jpg" alt="HDFC Logo">
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -157,16 +271,16 @@
   <!-- Contact -->
   <section id="contact">
     <h2>Connect with Me</h2>
-    <div class="contact-links">
+    <nav class="contact-links" aria-label="Contact Links">
       <a href="mailto:manan@email.com">Email</a>
-      <a href="https://www.linkedin.com/in/mananlodhia">LinkedIn</a>
-      <a href="https://github.com/yourusername">GitHub</a>
-    </div>
+      <a href="https://www.linkedin.com/in/mananlodhia" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+    </nav>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>\"The quieter you become, the more you are able to hear.\"</p>
+    <p>"The quieter you become, the more you are able to hear."</p>
   </footer>
 
   <!-- AOS Animation -->
@@ -177,6 +291,5 @@
       once: true
     });
   </script>
-
 </body>
 </html>
