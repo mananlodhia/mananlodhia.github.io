@@ -263,6 +263,8 @@
       margin: 0 auto;
       max-width: 900px;
     }
+
+    
     /* Tools Section (image 1) */
     .tools-cards-title {
       display: flex;
@@ -429,60 +431,81 @@
     </div>
   </section>
 
-  <!-- TIMELINE VERTICAL -->
-  <section class="section" id="timeline" data-aos="fade-up" style="background:transparent;box-shadow:none;">
-    <h2 class="section-title"><span style="font-size:1.5rem;">📍</span> The Path That Got Me Here...</h2>
-    <div class="timeline-vertical">
-      <!-- Intact -->
-      <div class="timeline-row" data-aos="fade-right">
-        <div class="timeline-dot-outer">
-          <div class="timeline-dot">
-            <img src="images/intact-logo.jpg" alt="Intact Logo">
-          </div>
-        </div>
-        <div class="timeline-card">
-          <div class="timeline-header">Intact Financial Corporation</div>
-          <div class="timeline-dates">September 2023 – Present</div>
-          <div class="timeline-role">Security Analyst</div>
-          <div>
-            I provided strategic security guidance across IT and business units, led threat intelligence and vulnerability management initiatives, and played a key role in incident response. I improved risk visibility, reduced critical vulnerabilities, and enhanced employee cyber awareness through targeted training and simulations, while supporting audit readiness with well documented security processes.
-          </div>
+ <!-- TIMELINE VERTICAL (Wider Details) -->
+<section class="section" id="timeline" data-aos="fade-up" style="background:transparent;box-shadow:none;">
+  <h2 class="section-title"><span style="font-size:1.5rem;">📍</span> The Path That Got Me Here...</h2>
+  <div class="timeline-vertical">
+    <!-- Intact -->
+    <div class="timeline-row" data-aos="fade-right">
+      <div class="timeline-dot-outer">
+        <div class="timeline-dot">
+          <img src="images/intact-logo.jpg" alt="Intact Logo">
         </div>
       </div>
-      <!-- LCM -->
-      <div class="timeline-row" data-aos="fade-right">
-        <div class="timeline-dot-outer">
-          <div class="timeline-dot">
-            <img src="images/lcm-logo.jpg" alt="LCM Logo">
-          </div>
-        </div>
-        <div class="timeline-card">
-          <div class="timeline-header">LCM Security</div>
-          <div class="timeline-dates">January 2023 – September 2023</div>
-          <div class="timeline-role">Jr. Security Analyst</div>
-          <div>
-            I supported public-sector clients by triaging thousands of security alerts monthly and assisting in incident response to reduce recurring threats. I improved threat visibility through custom detection tuning, led endpoint onboarding efforts, and conducted forensic investigations along with advising clients on alert handling and security best practices across municipalities, universities, and government institutions.
-          </div>
-        </div>
-      </div>
-      <!-- HDFC -->
-      <div class="timeline-row" data-aos="fade-right">
-        <div class="timeline-dot-outer">
-          <div class="timeline-dot">
-            <img src="images/hdfc-logo.png" alt="HDFC Logo">
-          </div>
-        </div>
-        <div class="timeline-card">
-          <div class="timeline-header">HDFC Bank</div>
-          <div class="timeline-dates">2018 – 2020</div>
-          <div class="timeline-role">Cyber Security Analyst</div>
-          <div>
-            At HDFC Bank, I worked as a Cybersecurity Analyst (titled CS Risk Manager) where I led threat detection, log analysis, and response efforts across multiple security layers. I implemented SOAR and TI platforms, optimized detection rules, automated workflows, and played a key role in incident response, vulnerability remediation, and policy development to improve SOC efficiency and reduce risk exposure.
-          </div>
+      <div class="timeline-card timeline-card-wide">
+        <div class="timeline-header">Intact Financial Corporation</div>
+        <div class="timeline-dates">September 2023 – Present</div>
+        <div class="timeline-role">Security Analyst</div>
+        <div>
+          I provided strategic security guidance across IT and business units, led threat intelligence and vulnerability management initiatives, and played a key role in incident response. I improved risk visibility, reduced critical vulnerabilities, and enhanced employee cyber awareness through targeted training and simulations, while supporting audit readiness with well documented security processes.
         </div>
       </div>
     </div>
-  </section>
+    <!-- LCM -->
+    <div class="timeline-row" data-aos="fade-right">
+      <div class="timeline-dot-outer">
+        <div class="timeline-dot">
+          <img src="images/lcm-logo.jpg" alt="LCM Logo">
+        </div>
+      </div>
+      <div class="timeline-card timeline-card-wide">
+        <div class="timeline-header">LCM Security</div>
+        <div class="timeline-dates">January 2023 – September 2023</div>
+        <div class="timeline-role">Jr. Security Analyst</div>
+        <div>
+          I supported public-sector clients by triaging thousands of security alerts monthly and assisting in incident response to reduce recurring threats. I improved threat visibility through custom detection tuning, led endpoint onboarding efforts, and conducted forensic investigations along with advising clients on alert handling and security best practices across municipalities, universities, and government institutions.
+        </div>
+      </div>
+    </div>
+    <!-- HDFC -->
+    <div class="timeline-row" data-aos="fade-right">
+      <div class="timeline-dot-outer">
+        <div class="timeline-dot">
+          <img src="images/hdfc-logo.png" alt="HDFC Logo">
+        </div>
+      </div>
+      <div class="timeline-card timeline-card-wide">
+        <div class="timeline-header">HDFC Bank</div>
+        <div class="timeline-dates">2018 – 2020</div>
+        <div class="timeline-role">Cyber Security Analyst</div>
+        <div>
+          At HDFC Bank, I worked as a Cybersecurity Analyst (titled CS Risk Manager) where I led threat detection, log analysis, and response efforts across multiple security layers. I implemented SOAR and TI platforms, optimized detection rules, automated workflows, and played a key role in incident response, vulnerability remediation, and policy development to improve SOC efficiency and reduce risk exposure.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* TIMELINE VERTICAL (Wider Details) */
+.timeline-vertical {
+  position: relative;
+  margin: 60px auto 0 auto;
+  padding-left: 0;
+  width: 100%;
+  max-width: 900px; /* Increased from 730px */
+  z-index: 1;
+}
+.timeline-card.timeline-card-wide {
+  min-width: 340px;
+  max-width: 700px; /* Increased card width */
+  font-size: 1.08rem;
+}
+@media (max-width: 1100px) {
+  .timeline-vertical { max-width: 99vw; }
+  .timeline-card.timeline-card-wide { max-width: 99vw; min-width: 0; }
+}
+</style>
 
   <!-- TOOLS (as per image 1) -->
   <section class="section" id="tools" data-aos="fade-up">
