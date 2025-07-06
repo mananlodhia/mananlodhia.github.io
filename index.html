@@ -569,8 +569,16 @@
 <footer>
   <p id="quote"></p>
 </footer>
-  
-<script>
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script>
   const quotes = [
     "Every breach tells a story. Our job is to read between the packets.",
     "He who conquers others is strong; he who conquers himself is mighty.",
@@ -585,14 +593,5 @@
   ];
   document.getElementById('quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
 </script>
-  
-  <!-- AOS Animation -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
 </body>
 </html>
