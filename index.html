@@ -10,12 +10,12 @@
     :root {
       --primary: #0a0a0a;
       --accent: #007acc;
-      --light-bg: #ffffff;
+      --light-bg: #f6f8fa;
       --light-text: #1e293b;
       --muted: #6b7280;
-      --card-bg: #f9fafb;
-      --section-bg: #f3f6fa;
-      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --card-bg: #f3f7fa;
+      --section-bg: #f6f8fa;
+      --shadow: 0 6px 32px rgba(0,122,204,0.04);
       --radius: 18px;
       --timeline-dot: #fff;
       --timeline-dot-border: #007acc;
@@ -37,7 +37,7 @@
     section {
       padding: 56px 26px;
       max-width: 930px;
-      margin: 40px auto;
+      margin: 48px auto;
       background: var(--section-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -102,7 +102,7 @@
 
     .value-box {
       background: var(--card-bg);
-      border-left: 5px solid var(--accent);
+      border-left: 5px solid #c6e2f9;
       padding: 22px 24px;
       margin-top: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
@@ -262,6 +262,63 @@
       margin-bottom: 0;
     }
 
+    /* Subtle footer line */
+    footer hr {
+      border: none;
+      border-top: 1.5px solid #e5e7eb;
+      margin-bottom: 24px;
+      width: 90%;
+      max-width: 800px;
+    }
+    #quote {
+      font-style: italic;
+      color: #56677b;
+      font-size: 1.18rem;
+      opacity: 0.85;
+      margin-top: 0;
+      margin-bottom: 0;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      transition: color 0.18s;
+    }
+
+    /* Tools grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
+    }
+    .tool-card {
+      background: #f7fafc;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,122,204,0.07);
+      padding: 20px 18px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+    .tool-card:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(0,122,204,0.13);
+      background: #f1f8fd;
+    }
+    .tool-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .tool-card h3 {
+      font-size: 1.12rem;
+      margin: 0 0 7px 0;
+      color: #007acc;
+    }
+    .tool-card p {
+      font-size: 1.01rem;
+      color: #475569;
+      margin: 0;
+    }
+
     /* Responsive Design */
     @media (max-width: 900px) {
       section {
@@ -312,6 +369,10 @@
       section {
         padding: 22px 2vw;
       }
+      .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
     }
     @media (max-width: 500px) {
       h1 { font-size: 2rem; }
@@ -331,12 +392,15 @@
     <div class="header-text">
       <h1>Manan Lodhia</h1>
       <p>Cybersecurity Analyst &nbsp;|&nbsp; Threat Hunter &nbsp;|&nbsp; Defender of Digital Frontiers</p>
+      <p style="font-size:1.08rem; color:#007acc; margin-top:10px;">
+        <strong>🚀 I’m currently open to new cybersecurity opportunities—let’s connect!</strong>
+      </p>
     </div>
     <img src="images/manan-profile.jpeg" alt="Manan Lodhia">
   </header>
 </section>
   
-  <!-- What I Bring to Your Team -->
+<!-- What I Bring to Your Team -->
 <section id="value-prop">
   <h2>🛡️ What I Bring to Your Team...</h2>
   <div class="value-box">
@@ -349,78 +413,57 @@
   </div>
 </section>
 
-  <!-- Timeline -->
-  <section id="timeline">
-    <h2 data-aos="fade-up">📍The Path That Got Me Here</h2>
-    <div class="timeline-container">
-      <div class="timeline-line"></div>
-      <div class="timeline-list">
+<!-- Timeline -->
+<section id="timeline">
+  <h2 data-aos="fade-up">📍The Path That Got Me Here</h2>
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+    <div class="timeline-list">
 
-        <!-- Intact -->
-        <div class="timeline-item left" data-aos="fade-right">
-          <div class="timeline-content">
-            <h3>Intact Financial Corporation</h3>
-            <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2022 – Present</p>
-            <p style="margin: 0.5rem 0 0;">Security Analyst</p>
-          </div>
-          <span class="timeline-dot"></span>
-          <div class="timeline-logo">
-            <img src="images/nt.jpg" alt="Intact Logo">
-          </div>
+      <!-- Intact -->
+      <div class="timeline-item left" data-aos="fade-right">
+        <div class="timeline-content">
+          <h3>Intact Financial Corporation</h3>
+          <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2022 – Present</p>
+          <p style="margin: 0.5rem 0 0;">Security Analyst</p>
         </div>
-
-        <!-- LCM -->
-        <div class="timeline-item right" data-aos="fade-left">
-          <div class="timeline-logo">
-            <img src="images/lcm.png" alt="LCM Logo">
-          </div>
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>LCM Security</h3>
-            <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2021 – 2022</p>
-            <p style="margin: 0.5rem 0 0;">Jr. Security Analyst</p>
-          </div>
+        <span class="timeline-dot"></span>
+        <div class="timeline-logo">
+          <img src="images/nt.jpg" alt="Intact Logo">
         </div>
-
-        <!-- HDFC -->
-        <div class="timeline-item left" data-aos="fade-right">
-          <div class="timeline-content">
-            <h3>HDFC Bank</h3>
-            <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2018 – 2020</p>
-            <p style="margin: 0.5rem 0 0;">Cyber Risk Manager</p>
-          </div>
-          <span class="timeline-dot"></span>
-          <div class="timeline-logo">
-            <img src="images/hdf.jpg" alt="HDFC Logo">
-          </div>
-        </div>
-
       </div>
+
+      <!-- LCM -->
+      <div class="timeline-item right" data-aos="fade-left">
+        <div class="timeline-logo">
+          <img src="images/lcm.png" alt="LCM Logo">
+        </div>
+        <span class="timeline-dot"></span>
+        <div class="timeline-content">
+          <h3>LCM Security</h3>
+          <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2021 – 2022</p>
+          <p style="margin: 0.5rem 0 0;">Jr. Security Analyst</p>
+        </div>
+      </div>
+
+      <!-- HDFC -->
+      <div class="timeline-item left" data-aos="fade-right">
+        <div class="timeline-content">
+          <h3>HDFC Bank</h3>
+          <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2018 – 2020</p>
+          <p style="margin: 0.5rem 0 0;">Cyber Risk Manager</p>
+        </div>
+        <span class="timeline-dot"></span>
+        <div class="timeline-logo">
+          <img src="images/hdf.jpg" alt="HDFC Logo">
+        </div>
+      </div>
+
     </div>
-  </section>
-  
-  <!-- Tools and Technologies -->
-<section id="tools">
-  <h2>🧰 Stuff I Tame Threats With...</h2>
-  <div class="value-box">
-    <ul>
-      <li><strong>SIEM/SOAR:</strong> Microsoft Azure Sentinel, QRadar, Elastic SIEM, Palo Alto Cortex XSOAR, FortiSIEM</li>
-      <li><strong>Endpoint Detection and Response (EDR):</strong> CrowdStrike Falcon, Microsoft Defender for Endpoint</li>
-      <li><strong>Threat Intelligence and Sharing:</strong> Recorded Future, Anomali ThreatStream, Mandiant Advantage, CCTX, FS-ISAC, CCCS, ENISA, ORION</li>
-      <li><strong>Threat Hunting and Detection:</strong> Atomic Red Team, CrowdStrike Query Language (CQL), Cymulate, KQL, Microsoft Defender, OSQuery, PowerShell, Python, Bash scripting</li>
-      <li><strong>Network Security:</strong> Cisco Secure, Palo Alto Networks, Barracuda CloudGen, Palo Alto GlobalProtect</li>
-      <li><strong>Penetration Testing tools:</strong> Nmap, Metasploit, Hashcat, Burp Suite, Wireshark</li>
-      <li><strong>Regulatory Compliance and Frameworks:</strong> PCI-DSS, GDPR, ISO-27001</li>
-      <li><strong>Email Security:</strong> FortiMail, Proofpoint, Microsoft Defender for Office 365</li>
-      <li><strong>Cloud Security and SaaS:</strong> Microsoft Azure Security Center, Prisma Cloud, MFA</li>
-      <li><strong>Reporting and Collaboration:</strong> Power BI, Microsoft Visio, Confluence, Jira, ServiceNow, ConnectWise</li>
-      <li><strong>Vulnerability Mgmt and Scanning:</strong> Qualys VMDR, Tenable Nessus, Rapid7 Nexpose, Nmap, Nexus IQ</li>
-      <li><strong>Soft Skills:</strong> Problem-solving and analytical skills, Written and verbal communication, Multitasking under pressure and tight deadlines, Presentation skills, Cross-functional collaboration</li>
-    </ul>
   </div>
 </section>
-
-  <!-- Tools and Technologies -->
+  
+<!-- Tools and Technologies -->
 <section id="tools">
   <h2>🧰 Stuff I Tame Threats With...</h2>
   <div class="tools-grid">
@@ -487,43 +530,6 @@
   </div>
 </section>
 
-<style>
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-  gap: 26px;
-  margin-top: 24px;
-}
-.tool-card {
-  background: #f9fafb;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  padding: 20px 18px 16px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.tool-card:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0,122,204,0.10);
-}
-.tool-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-.tool-card h3 {
-  font-size: 1.12rem;
-  margin: 0 0 7px 0;
-  color: #007acc;
-}
-.tool-card p {
-  font-size: 1.01rem;
-  color: #475569;
-  margin: 0;
-}
-</style>
-
 <!-- Education -->
 <section id="education">
   <h2>🧠📚 Where It All Started...</h2>
@@ -545,32 +551,40 @@
   </div>
 </section>
   
-  <!-- Hobbies -->
-  <section id="hobbies">
-    <h2>🧘 Off the clock, when I'm not hunting threats...</h2>
-    <ul style="font-size:1.15rem; line-height: 2; list-style: none; padding-left: 0; margin-top: 18px;">
-      <li>🎥 Watching anime series</li>
-      <li>🚶‍♀️ Taking long walks on nature trails</li>
-      <li>🍳 Cooking for friends and family</li>
-    </ul>
-  </section>
+<!-- Hobbies -->
+<section id="hobbies">
+  <h2>🧘 Off the clock, when I'm not hunting threats...</h2>
+  <ul style="font-size:1.15rem; line-height: 2; list-style: none; padding-left: 0; margin-top: 18px;">
+    <li>🎥 Watching anime series</li>
+    <li>🚶‍♀️ Taking long walks on nature trails</li>
+    <li>🍳 Cooking for friends and family</li>
+  </ul>
+</section>
   
-  <!-- Contact -->
-  <section id="contact">
-    <h2>📬 Slide Into My Inbox</h2>
-    <nav class="contact-links" aria-label="Contact Links">
-      <a href="mailto:manan@email.com" title="Email Manan Lodhia">Email</a>
-      <a href="https://www.linkedin.com/in/manan-lodhia" target="_blank" rel="noopener" title="LinkedIn Profile">LinkedIn</a>
-      <!-- <a href="https://github.com/yourusername" target="_blank" rel="noopener" title="GitHub Profile">GitHub</a> -->
-    </nav>
-  </section>
+<!-- Contact -->
+<section id="contact">
+  <h2>📬 Slide Into My Inbox</h2>
+  <nav class="contact-links" aria-label="Contact Links">
+    <a href="mailto:manan@email.com" title="Email Manan Lodhia">Email</a>
+    <a href="https://www.linkedin.com/in/manan-lodhia" target="_blank" rel="noopener" title="LinkedIn Profile">LinkedIn</a>
+    <!-- <a href="https://github.com/yourusername" target="_blank" rel="noopener" title="GitHub Profile">GitHub</a> -->
+  </nav>
+</section>
 
 <!-- Footer -->
 <footer>
-  <hr style="border: none; border-top: 1.5px solid #e5e7eb; margin-bottom: 24px; width: 90%; max-width: 800px;"/>
-  <p id="quote" style="font-style: italic; color: #56677b; font-size: 1.18rem; opacity: 0.8;"></p>
+  <hr>
+  <p id="quote"></p>
 </footer>
 
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const quotes = [
@@ -589,14 +603,5 @@
       quotes[Math.floor(Math.random() * quotes.length)];
   });
 </script>
-
-  <!-- AOS Animation -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
 </body>
 </html>
