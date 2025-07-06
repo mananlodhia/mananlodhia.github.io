@@ -20,11 +20,11 @@
       position: relative;
       overflow-x: hidden;
     }
-    /* Decorative SVG blobs */
+    /* --- Decorative SVG blobs for subtle background --- */
     .bg-svg-blur {
       position: fixed;
       z-index: 0;
-      opacity: 0.18;
+      opacity: 0.13;
       pointer-events: none;
       filter: blur(1.7px);
     }
@@ -120,113 +120,137 @@
       z-index: 1;
     }
     .section-title {
-      color: #007acc;
+      color: #1976D2;
       font-weight: 800;
       margin-bottom: 1.1rem;
-      font-size: 2.2rem;
+      font-size: 2.15rem;
       letter-spacing: -.5px;
       text-align: center;
       position: relative;
+      font-family: inherit;
     }
     .section-title::after {
       content: '';
       display: block;
       width: 52px;
       height: 3px;
-      background: #007acc;
+      background: #1976D2;
       margin: 13px auto 0 auto;
       border-radius: 2px;
     }
-    /* Timeline MAP style */
-    .timeline-map {
+    /* Timeline (vertical, like image) */
+    .timeline-vertical {
       position: relative;
-      max-width: 1100px;
-      margin: 0 auto;
+      margin: 60px auto 0 auto;
+      padding-left: 0;
+      width: 100%;
+      max-width: 730px;
       z-index: 1;
-      padding: 2.6rem 0 1.7rem 0;
     }
-    .timeline-map-line {
-      position: absolute;
-      left: 50%;
-      top: 60px;
-      bottom: 40px;
-      width: 6px;
-      background: #c6e2f9;
-      border-radius: 3px;
-      transform: translateX(-50%);
-      z-index: 0;
-      min-height: 320px;
-    }
-    .timeline-step {
+    .timeline-row {
+      position: relative;
       display: flex;
       align-items: flex-start;
-      justify-content: flex-start;
-      gap: 2.2rem;
-      margin-bottom: 3.8rem;
-      position: relative;
-      width: 100%;
+      margin-bottom: 54px;
     }
-    .timeline-step.left {
-      flex-direction: row;
-      justify-content: flex-start;
+    .timeline-dot-outer {
+      position: absolute;
+      left: -61px;
+      top: 18px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .timeline-step.right {
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-    }
-    .timeline-map-dot {
-      width: 46px; height: 46px;
+    .timeline-dot {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: #fff;
-      border: 5px solid #007acc;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 2;
-      box-shadow: 0 3px 12px rgba(0,122,204,0.09);
-      position: relative;
-      top: 0;
+      border: 4px solid #1976D2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(25,118,210,0.12);
     }
-    .timeline-map-dot img {
-      width: 30px; height: 30px; object-fit: contain; border-radius: 7px;
+    .timeline-dot img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      border: none;
     }
-    .timeline-map-content {
-      background: #f7fafc;
-      border-radius: 13px;
-      box-shadow: 0 2px 9px rgba(0,122,204,0.07);
-      padding: 1.2rem 1.7rem 1.2rem 1.7rem;
-      min-width: 280px;
-      max-width: 470px;
-      position: relative;
-      z-index: 1;
+    .timeline-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(25,118,210,0.06);
+      padding: 22px 26px 20px 26px;
+      min-width: 270px;
+      max-width: 520px;
+      flex: 1;
+      margin-left: 0;
+      border-left: 6px solid #e3f0fc;
+      font-size: 1.08rem;
+      font-family: inherit;
+      color: #26344a;
     }
-    .timeline-step.left .timeline-map-content {
-      margin-left: 0.8rem;
-      text-align: right;
-    }
-    .timeline-step.right .timeline-map-content {
-      margin-right: 0.8rem;
-      text-align: left;
-    }
-    .timeline-map-company {
+    .timeline-header {
       font-weight: 700;
-      color: #007acc;
-      font-size: 1.13rem;
+      color: #1976D2;
+      font-size: 1.18rem;
+      margin-bottom: 4px;
     }
-    .timeline-map-dates {
-      font-size: 1rem;
-      color: #6b7280;
+    .timeline-role {
+      font-weight: 700;
+      color: #26344a;
+      font-size: 1.08rem;
       margin-bottom: 2px;
     }
-    .timeline-map-role {
-      font-weight: 600;
-      color: #27364b;
-      font-size: 1.05rem;
-      margin-bottom: 1px;
-    }
-    .timeline-map-desc {
+    .timeline-dates {
+      color: #6b7280;
       font-size: 1.02rem;
-      color: #5d6b7a;
-      margin-top: 7px;
-      display: block;
+      margin-bottom: 5px;
+      margin-top: 0;
+      font-weight: 500;
+    }
+    /* Timeline vertical line */
+    .timeline-vertical:before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: #e3f0fc;
+      border-radius: 3px;
+      z-index: 0;
+    }
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .hero-content, .section {
+        max-width: 99vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+      }
+      .timeline-vertical { max-width: 99vw; }
+    }
+    @media (max-width: 900px) {
+      .section { max-width: 99vw; padding: 1.5rem 1vw;}
+      .hero-content { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .hero-img { margin: 0 auto 1.2rem auto; width: 150px; height: 150px; }
+      .hero-text-block { max-width: 99vw; text-align: center; }
+      .timeline-vertical { padding-left: 0; }
+      .timeline-dot-outer { left: -40px; }
+      .timeline-dot { width: 38px; height: 38px;}
+      .timeline-dot img { width: 26px; height: 26px;}
+      .timeline-card { min-width: 160px; max-width: 99vw; padding: 14px 9px 12px 14px;}
+    }
+    @media (max-width: 600px) {
+      .section { padding: 1rem 2vw; }
+      .timeline-vertical { padding-left: 0; }
+      .timeline-row { margin-bottom: 32px;}
+      .timeline-dot-outer { left: -26px;}
     }
     /* Value / USP */
     .value-box {
@@ -239,45 +263,73 @@
       margin: 0 auto;
       max-width: 900px;
     }
-    /* Tools - one per line, grouped by category */
-    .tools-group-grid {
+    /* Tools Section (image 1) */
+    .tools-cards-title {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem 3.5rem;
-      margin-top: 2.0rem;
-      justify-content: flex-start;
-    }
-    .tools-group {
-      min-width: 240px;
-      flex: 1 1 260px;
-      max-width: 340px;
-      margin-bottom: 1.5rem;
-    }
-    .tools-group h5 {
-      color: #007acc;
-      font-size: 1.08rem;
+      align-items: center;
+      gap: 12px;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #1976D2;
       margin-bottom: 0.7rem;
+      justify-content: center;
+      font-family: inherit;
+    }
+    .tools-divider {
+      width: 52px;
+      height: 3px;
+      background: #1976D2;
+      margin: 0.35rem auto 1.6rem auto;
+      border-radius: 2px;
+    }
+    .tools-category {
       font-weight: 700;
-      letter-spacing: -.3px;
+      color: #1976D2;
+      font-size: 1.13rem;
+      margin-bottom: 8px;
+      margin-top: 1.2em;
+      font-family: inherit;
     }
     .tools-list {
       list-style: none;
       padding-left: 0;
       margin-bottom: 0;
-      font-size: 1.01rem;
-      color: #475569;
+      font-size: 1.02rem;
+      color: #222f3e;
     }
     .tools-list li {
-      margin-bottom: .35em;
+      margin-bottom: .3em;
       padding-left: 0.7em;
       position: relative;
     }
     .tools-list li:before {
       content: "•";
-      color: #007acc;
-      font-weight: 800;
+      color: #1976D2;
+      font-weight: bold;
       position: absolute;
       left: 0;
+    }
+    .tools-cards-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 5vw;
+      justify-content: flex-start;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    .tools-cards-col {
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 280px;
+      margin-bottom: 1.7rem;
+    }
+    @media (max-width: 1200px) {
+      .tools-cards-row { gap: 0 2vw; }
+      .tools-cards-col { min-width: 160px; max-width: 99vw;}
+    }
+    @media (max-width: 700px) {
+      .tools-cards-row { flex-direction: column; gap: 0.7rem;}
+      .tools-cards-col { min-width: 0; max-width: 99vw;}
     }
     /* Contact */
     .contact-links {
@@ -292,21 +344,21 @@
       min-width: 102px;
       text-align: center;
       padding: 12px 20px;
-      border: 2px solid #007acc;
+      border: 2px solid #1976D2;
       border-radius: 8px;
-      color: #007acc;
+      color: #1976D2;
       background: #fff;
       font-weight: 600;
       font-size: 1.05rem;
       text-decoration: none;
       transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
-      box-shadow: 0 2px 6px rgba(0,122,204,0.05);
+      box-shadow: 0 2px 6px rgba(25,118,210,0.08);
     }
     .contact-links a:hover, .contact-links a:focus {
-      background: #007acc;
+      background: #1976D2;
       color: #fff;
       border-color: #005b99;
-      box-shadow: 0 4px 20px rgba(0,122,204,0.14);
+      box-shadow: 0 4px 20px rgba(25,118,210,0.14);
       text-decoration: underline;
     }
     /* Footer */
@@ -334,35 +386,6 @@
       letter-spacing: 0.01em;
       line-height: 1.5;
     }
-    @media (max-width: 1500px) {
-      .hero-content, .section {
-        max-width: 99vw;
-        padding-left: 2vw;
-        padding-right: 2vw;
-      }
-      .timeline-map, .tools-group-grid {
-        max-width: 99vw;
-        padding-left: 1vw;
-        padding-right: 1vw;
-      }
-    }
-    @media (max-width: 900px) {
-      .section { max-width: 99vw; padding: 1.5rem 1vw;}
-      .hero-content { flex-direction: column; text-align: center; gap: 1.5rem; }
-      .hero-img { margin: 0 auto 1.2rem auto; width: 150px; height: 150px; }
-      .hero-text-block { max-width: 99vw; text-align: center; }
-      .timeline-map-content { min-width: 180px; max-width: 99vw; padding: 12px 7px; }
-      .timeline-map-dot { width: 30px; height: 30px;}
-      .timeline-map-dot img { width: 20px; height: 20px;}
-      .tools-group-grid { flex-direction: column; gap: 1.2rem; }
-      .tools-group { min-width: 0; max-width: 99vw;}
-    }
-    @media (max-width: 600px) {
-      .section { padding: 1rem 2vw; }
-      .timeline-map { padding-left: 0; }
-      .timeline-step { gap: 0.7rem; }
-      .timeline-map-content { padding: 8px 3px }
-    }
   </style>
 </head>
 <body>
@@ -371,7 +394,7 @@
     <ellipse cx="200" cy="200" rx="200" ry="160" fill="#C6E2F9"/>
   </svg>
   <svg class="bg-svg-blur bg-svg-bottom" viewBox="0 0 400 400" fill="none">
-    <ellipse cx="200" cy="200" rx="200" ry="150" fill="#007acc"/>
+    <ellipse cx="200" cy="200" rx="200" ry="150" fill="#1976D2"/>
   </svg>
 
   <!-- HERO -->
@@ -406,49 +429,54 @@
     </div>
   </section>
 
-  <!-- TIMELINE MAP -->
+  <!-- TIMELINE VERTICAL -->
   <section class="section" id="timeline" data-aos="fade-up" style="background:transparent;box-shadow:none;">
     <h2 class="section-title"><span style="font-size:1.5rem;">📍</span> The Path That Got Me Here...</h2>
-    <div class="timeline-map">
-      <div class="timeline-map-line"></div>
-      <!-- Step 1: Intact -->
-      <div class="timeline-step left" data-aos="fade-right">
-        <div class="timeline-map-dot">
-          <img src="images/intact-logo.jpg" alt="Intact Logo">
+    <div class="timeline-vertical">
+      <!-- Intact -->
+      <div class="timeline-row" data-aos="fade-right">
+        <div class="timeline-dot-outer">
+          <div class="timeline-dot">
+            <img src="images/intact-logo.jpg" alt="Intact Logo">
+          </div>
         </div>
-        <div class="timeline-map-content">
-          <div class="timeline-map-company">Intact Financial Corporation</div>
-          <div class="timeline-map-dates">September 2023 – Present</div>
-          <div class="timeline-map-role">Security Analyst</div>
-          <div class="timeline-map-desc">
+        <div class="timeline-card">
+          <div class="timeline-header">Intact Financial Corporation</div>
+          <div class="timeline-dates">September 2023 – Present</div>
+          <div class="timeline-role">Security Analyst</div>
+          <div>
             I provided strategic security guidance across IT and business units, led threat intelligence and vulnerability management initiatives, and played a key role in incident response. I improved risk visibility, reduced critical vulnerabilities, and enhanced employee cyber awareness through targeted training and simulations, while supporting audit readiness with well documented security processes.
           </div>
         </div>
       </div>
-      <!-- Step 2: LCM -->
-      <div class="timeline-step right" data-aos="fade-left">
-        <div class="timeline-map-dot">
-          <img src="images/lcm-logo.jpg" alt="LCM Logo">
+      <!-- LCM -->
+      <div class="timeline-row" data-aos="fade-right">
+        <div class="timeline-dot-outer">
+          <div class="timeline-dot">
+            <img src="images/lcm-logo.jpg" alt="LCM Logo">
+          </div>
         </div>
-        <div class="timeline-map-content">
-          <div class="timeline-map-company">LCM Security</div>
-          <div class="timeline-map-dates">January 2023 – September 2023</div>
-          <div class="timeline-map-role">Jr. Security Analyst</div>
-          <div class="timeline-map-desc">
+        <div class="timeline-card">
+          <div class="timeline-header">LCM Security</div>
+          <div class="timeline-dates">January 2023 – September 2023</div>
+          <div class="timeline-role">Jr. Security Analyst</div>
+          <div>
             I supported public-sector clients by triaging thousands of security alerts monthly and assisting in incident response to reduce recurring threats. I improved threat visibility through custom detection tuning, led endpoint onboarding efforts, and conducted forensic investigations along with advising clients on alert handling and security best practices across municipalities, universities, and government institutions.
           </div>
         </div>
       </div>
-      <!-- Step 3: HDFC -->
-      <div class="timeline-step left" data-aos="fade-right">
-        <div class="timeline-map-dot">
-          <img src="images/hdfc-logo.png" alt="HDFC Logo">
+      <!-- HDFC -->
+      <div class="timeline-row" data-aos="fade-right">
+        <div class="timeline-dot-outer">
+          <div class="timeline-dot">
+            <img src="images/hdfc-logo.png" alt="HDFC Logo">
+          </div>
         </div>
-        <div class="timeline-map-content">
-          <div class="timeline-map-company">HDFC Bank</div>
-          <div class="timeline-map-dates">2018 – 2020</div>
-          <div class="timeline-map-role">Cyber Security Analyst</div>
-          <div class="timeline-map-desc">
+        <div class="timeline-card">
+          <div class="timeline-header">HDFC Bank</div>
+          <div class="timeline-dates">2018 – 2020</div>
+          <div class="timeline-role">Cyber Security Analyst</div>
+          <div>
             At HDFC Bank, I worked as a Cybersecurity Analyst (titled CS Risk Manager) where I led threat detection, log analysis, and response efforts across multiple security layers. I implemented SOAR and TI platforms, optimized detection rules, automated workflows, and played a key role in incident response, vulnerability remediation, and policy development to improve SOC efficiency and reduce risk exposure.
           </div>
         </div>
@@ -456,128 +484,131 @@
     </div>
   </section>
 
-  <!-- TOOLS / SKILLS, each tool per line -->
+  <!-- TOOLS (as per image 1) -->
   <section class="section" id="tools" data-aos="fade-up">
-    <h2 class="section-title">🧰 Stuff I Tame Threats With...</h2>
-    <div class="tools-group-grid">
-      <div class="tools-group">
-        <h5>SIEM / SOAR</h5>
+    <div class="tools-cards-title">
+      <span style="font-size:2.1rem;">🛡️</span> Stuff I Tame Threats With...
+    </div>
+    <div class="tools-divider"></div>
+    <div class="tools-cards-row">
+      <div class="tools-cards-col">
+        <div class="tools-category">SIEM / SOAR</div>
         <ul class="tools-list">
-          <li>Microsoft Sentinel (Azure)</li>
-          <li>IBM QRadar</li>
-          <li>Elastic SIEM</li>
-          <li>Cortex XSOAR</li>
-          <li>FortiSIEM</li>
+          <li>Microsoft Sentinel (Azure)</li><br>
+          <li>IBM QRadar</li><br>
+          <li>Elastic SIEM</li><br>
+          <li>Cortex XSOAR</li><br>
+          <li>FortiSIEM</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Endpoint Detection & Response</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Endpoint Detection & Response</div>
         <ul class="tools-list">
-          <li>CrowdStrike Falcon</li>
-          <li>Microsoft Defender for Endpoint</li>
+          <li>CrowdStrike Falcon</li><br>
+          <li>Microsoft Defender for Endpoint</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Threat Intel & Sharing</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Threat Intel & Sharing</div>
         <ul class="tools-list">
-          <li>Recorded Future</li>
-          <li>Anomali</li>
-          <li>Mandiant</li>
-          <li>CCTX</li>
-          <li>FS-ISAC</li>
-          <li>CCCS</li>
-          <li>ENISA</li>
+          <li>Recorded Future</li><br>
+          <li>Anomali</li><br>
+          <li>Mandiant</li><br>
+          <li>CCTX</li><br>
+          <li>FS-ISAC</li><br>
+          <li>CCCS</li><br>
+          <li>ENISA</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Threat Hunting & Detection</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Threat Hunting & Detection</div>
         <ul class="tools-list">
-          <li>Atomic Red Team</li>
-          <li>Elastic Stack</li>
-          <li>YARA</li>
-          <li>Sigma</li>
-          <li>CQ</li>
-          <li>KQL</li>
-          <li>OSQuery</li>
-          <li>Cymulate</li>
-          <li>PowerShell</li>
-          <li>Python</li>
-          <li>Bash</li>
+          <li>Atomic Red Team</li><br>
+          <li>Elastic Stack</li><br>
+          <li>YARA</li><br>
+          <li>Sigma</li><br>
+          <li>CQ</li><br>
+          <li>KQL</li><br>
+          <li>OSQuery</li><br>
+          <li>Cymulate</li><br>
+          <li>PowerShell</li><br>
+          <li>Python</li><br>
+          <li>Bash</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Network Security</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Network Security</div>
         <ul class="tools-list">
-          <li>Cisco Secure</li>
-          <li>Palo Alto Networks</li>
-          <li>Barracuda CloudGen</li>
-          <li>GlobalProtect</li>
+          <li>Cisco Secure</li><br>
+          <li>Palo Alto Networks</li><br>
+          <li>Barracuda CloudGen</li><br>
+          <li>GlobalProtect</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Penetration Testing</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Penetration Testing</div>
         <ul class="tools-list">
-          <li>Nmap</li>
-          <li>Metasploit</li>
-          <li>Hashcat</li>
-          <li>Burp Suite</li>
-          <li>Wireshark</li>
+          <li>Nmap</li><br>
+          <li>Metasploit</li><br>
+          <li>Hashcat</li><br>
+          <li>Burp Suite</li><br>
+          <li>Wireshark</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Compliance & Frameworks</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Compliance & Frameworks</div>
         <ul class="tools-list">
-          <li>PCI-DSS</li>
-          <li>GDPR</li>
-          <li>ISO/IEC 27001</li>
-          <li>HIPAA</li>
+          <li>PCI-DSS</li><br>
+          <li>GDPR</li><br>
+          <li>ISO/IEC 27001</li><br>
+          <li>HIPAA</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Email Security</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Email Security</div>
         <ul class="tools-list">
-          <li>FortiMail</li>
-          <li>Proofpoint</li>
-          <li>Microsoft Defender for O365</li>
+          <li>FortiMail</li><br>
+          <li>Proofpoint</li><br>
+          <li>Microsoft Defender for O365</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Cloud Security & SaaS</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Cloud Security & SaaS</div>
         <ul class="tools-list">
-          <li>Azure Security Center</li>
-          <li>Prisma Cloud</li>
-          <li>MFA</li>
+          <li>Azure Security Center</li><br>
+          <li>Prisma Cloud</li><br>
+          <li>MFA</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Reporting & Collaboration</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Reporting & Collaboration</div>
         <ul class="tools-list">
-          <li>Power BI</li>
-          <li>Visio</li>
-          <li>Confluence</li>
-          <li>Jira</li>
-          <li>ServiceNow</li>
-          <li>ConnectWise</li>
+          <li>Power BI</li><br>
+          <li>Visio</li><br>
+          <li>Confluence</li><br>
+          <li>Jira</li><br>
+          <li>ServiceNow</li><br>
+          <li>ConnectWise</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Vuln Mgmt & Scanning</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Vuln Mgmt & Scanning</div>
         <ul class="tools-list">
-          <li>Qualys VMDR</li>
-          <li>Nessus</li>
-          <li>Rapid7 Nexpose</li>
-          <li>Nexus IQ</li>
-          <li>Nmap</li>
+          <li>Qualys VMDR</li><br>
+          <li>Nessus</li><br>
+          <li>Rapid7 Nexpose</li><br>
+          <li>Nexus IQ</li><br>
+          <li>Nmap</li><br>
         </ul>
       </div>
-      <div class="tools-group">
-        <h5>Soft Skills</h5>
+      <div class="tools-cards-col">
+        <div class="tools-category">Soft Skills</div>
         <ul class="tools-list">
-          <li>Problem-solving</li>
-          <li>Communication</li>
-          <li>Multitasking</li>
-          <li>Presentations</li>
-          <li>Collaboration</li>
+          <li>Problem-solving</li><br>
+          <li>Communication</li><br>
+          <li>Multitasking</li><br>
+          <li>Presentations</li><br>
+          <li>Collaboration</li><br>
         </ul>
       </div>
     </div>
