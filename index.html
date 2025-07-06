@@ -4,36 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cyberfolio | Manan Lodhia</title>
-
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Figtree -->
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
   <style>
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Figtree', sans-serif;
       background: #f4f7fa;
-      color: #27364b;
+      color: #26344a;
     }
-    /* HEADER / HERO */
+    /* HERO */
     .hero-section {
-      background: linear-gradient(120deg, #eaf4fb 60%, #fff 100%);
-      padding: 0 0 0 0;
-      border-radius: 0 0 60px 60px;
+      background: linear-gradient(110deg, #eaf4fb 60%, #fff 100%);
+      border-radius: 0 0 70px 70px;
       box-shadow: 0 8px 32px rgba(0,122,204,0.07);
-      margin-bottom: 2.3rem;
+      margin-bottom: 2.5rem;
     }
     .hero-content {
-      max-width: 970px;
+      max-width: 950px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 2.7rem;
-      padding: 3.5rem 2rem 2.8rem 2rem;
+      gap: 2.5rem;
+      padding: 3.7rem 2rem 2.7rem 2rem;
       flex-wrap: wrap;
     }
     .hero-img {
@@ -47,19 +44,19 @@
     }
     .hero-title {
       font-weight: 800;
-      font-size: 2.65rem;
-      margin-bottom: .65rem;
+      font-size: 2.7rem;
+      margin-bottom: .5rem;
       color: #007acc;
       letter-spacing: -.5px;
     }
     .hero-role {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 600;
-      color: #27364b;
-      margin-bottom: .6rem;
+      color: #26344a;
+      margin-bottom: .5rem;
     }
     .hero-available {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       background: #eaf4fb;
       color: #007acc;
       font-weight: 600;
@@ -69,34 +66,45 @@
       margin-bottom: 8px;
       border: 1.5px solid #c6e2f9;
     }
-    /* SECTION STYLES */
+    /* Section */
     .section {
       background: #fff;
       border-radius: 22px;
       box-shadow: 0 4px 24px rgba(0,122,204,0.07);
-      margin: 2.1rem auto;
-      max-width: 970px;
+      margin: 2.2rem auto;
+      max-width: 950px;
       padding: 2.2rem 2.1rem 2.1rem 2.1rem;
       position: relative;
     }
     .section-title {
       color: #007acc;
-      font-weight: 700;
-      margin-bottom: 1.0rem;
+      font-weight: 800;
+      margin-bottom: 1.1rem;
       font-size: 2rem;
       letter-spacing: -.5px;
+      text-align: center;
+      position: relative;
     }
-    /* TIMELINE */
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: #007acc;
+      margin: 13px auto 0 auto;
+      border-radius: 2px;
+    }
+    /* Timeline */
     .timeline {
       position: relative;
-      margin: 0 0 0 0;
+      margin: 0;
       padding-left: 45px;
     }
     .timeline:before {
       content: '';
       position: absolute;
-      left: 16px;
-      top: 10px;
+      left: 18px;
+      top: 15px;
       bottom: 30px;
       width: 4px;
       background: #007acc;
@@ -105,15 +113,15 @@
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.7rem;
       display: flex;
       align-items: flex-start;
       gap: 1.1rem;
     }
     .timeline-dot {
       position: absolute;
-      left: 7px;
-      top: 22px;
+      left: 8px;
+      top: 23px;
       width: 20px;
       height: 20px;
       background: #fff;
@@ -131,6 +139,10 @@
       min-width: 235px;
       max-width: 480px;
       flex: 1;
+      transition: box-shadow 0.15s;
+    }
+    .timeline-card:hover {
+      box-shadow: 0 8px 28px rgba(0,122,204,0.12);
     }
     .timeline-header {
       display: flex;
@@ -172,16 +184,18 @@
       margin-top: 3px;
       display: block;
     }
-    /* VALUE / USP */
+    /* Value / USP */
     .value-box {
       background: #f7fafc;
       border-left: 5px solid #c6e2f9;
       padding: 20px 22px;
       border-radius: 9px;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      margin: 0 auto;
+      max-width: 750px;
     }
-    /* TOOLS */
+    /* Tools */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -194,6 +208,10 @@
       box-shadow: 0 2px 9px rgba(0,122,204,0.07);
       padding: 1rem 1rem 0.7rem 1rem;
       transition: .16s;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
     .tool-card:hover {
       box-shadow: 0 8px 28px rgba(0,122,204,0.13);
@@ -209,18 +227,20 @@
       color: #007acc;
       margin-bottom: 6px;
       margin-top: 0;
+      font-weight: 700;
     }
     .tool-card p {
       color: #475569;
       font-size: 0.99rem;
       margin: 0;
     }
-    /* CONTACT */
+    /* Contact */
     .contact-links {
       margin-top: 22px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      justify-content: center;
     }
     .contact-links a {
       display: inline-block;
@@ -244,13 +264,13 @@
       box-shadow: 0 4px 20px rgba(0,122,204,0.14);
       text-decoration: underline;
     }
-    /* FOOTER */
+    /* Footer */
     footer {
       text-align: center;
       padding: 28px 0 18px 0;
       color: #6b7280;
       font-style: italic;
-      font-size: 1.08rem;
+      font-size: 1.09rem;
       background: transparent;
     }
     footer hr {
@@ -261,15 +281,13 @@
       max-width: 800px;
     }
     #quote {
-      font-style: italic;
       color: #56677b;
-      font-size: 1.13rem;
+      font-size: 1.15rem;
       opacity: 0.85;
       margin-top: 0;
       margin-bottom: 0;
       letter-spacing: 0.01em;
       line-height: 1.5;
-      transition: color 0.18s;
     }
     /* Watermark */
     body::after {
@@ -284,7 +302,7 @@
       z-index: 0;
     }
     @media (max-width: 900px) {
-      .section { max-width: 99vw; padding: 1.8rem 2vw;}
+      .section { max-width: 99vw; padding: 1.5rem 2vw;}
       .hero-content { padding: 2.3rem 1vw 1.7rem 1vw;}
     }
     @media (max-width: 700px) {
@@ -292,14 +310,15 @@
       .hero-img { margin-bottom: 1rem;}
       .timeline-card { min-width: 150px; max-width: 99vw; padding: 10px 8px 10px 8px;}
       .timeline-logo { width: 26px; height: 26px;}
-      .timeline { padding-left: 13px;}
-      .timeline-dot { width: 13px; height: 13px; left: -3px; top: 20px;}
+      .timeline { padding-left: 9px;}
+      .timeline-dot { width: 13px; height: 13px; left: -7px; top: 20px;}
       .tools-grid { grid-template-columns: 1fr; gap: .8rem;}
     }
   </style>
 </head>
 <body>
-  <!-- Hero / Intro -->
+
+  <!-- HERO -->
   <section class="hero-section shadow-sm" id="intro">
     <div class="hero-content">
       <img src="images/manan-profile.jpeg" alt="Manan Lodhia" class="hero-img">
@@ -314,7 +333,7 @@
     </div>
   </section>
 
-  <!-- Value Proposition -->
+  <!-- VALUE / USP -->
   <section class="section" id="value-prop" data-aos="fade-up">
     <h2 class="section-title">🛡️ What I Bring to Your Team</h2>
     <div class="value-box">
@@ -327,7 +346,7 @@
     </div>
   </section>
 
-  <!-- Timeline -->
+  <!-- TIMELINE -->
   <section class="section" id="timeline" style="background:transparent;box-shadow:none;">
     <h2 class="section-title" data-aos="fade-up"><span style="font-size:1.5rem;">📍</span> My Experience Path</h2>
     <div class="timeline">
@@ -385,7 +404,7 @@
     </div>
   </section>
 
-  <!-- Tools and Technologies -->
+  <!-- TOOLS / SKILLS -->
   <section class="section" id="tools" data-aos="fade-up">
     <h2 class="section-title">🧰 Stuff I Tame Threats With</h2>
     <div class="tools-grid">
@@ -452,7 +471,7 @@
     </div>
   </section>
 
-  <!-- Education -->
+  <!-- EDUCATION -->
   <section class="section" id="education" data-aos="fade-up">
     <h2 class="section-title">🧠📚 Where It All Started</h2>
     <div class="value-box">
@@ -473,7 +492,7 @@
     </div>
   </section>
 
-  <!-- Hobbies -->
+  <!-- HOBBIES -->
   <section class="section" id="hobbies" data-aos="fade-up">
     <h2 class="section-title">🧘 Off the clock, when I'm not hunting threats...</h2>
     <ul style="font-size:1.15rem; line-height: 2; list-style: none; padding-left: 0; margin-top: 18px;">
@@ -483,7 +502,7 @@
     </ul>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section class="section" id="contact" data-aos="fade-up">
     <h2 class="section-title">📬 Slide Into My Inbox</h2>
     <nav class="contact-links" aria-label="Contact Links">
@@ -492,13 +511,13 @@
     </nav>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <hr>
     <p id="quote"></p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
