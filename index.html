@@ -460,65 +460,173 @@
     </ul>
   </div>
 </section>
-
-<!-- Timeline (Upgraded) -->
-<section id="timeline">
-  <h2 data-aos="fade-up">📍The Path That Got Me Here</h2>
-  <div class="timeline-container">
-    <div class="timeline-line"></div>
-    <div class="timeline-list">
-
-      <!-- Intact Financial Corporation -->
-      <div class="timeline-item left" data-aos="fade-right">
-        <div class="timeline-content upgraded-timeline-card">
-          <div class="timeline-header">
-            <img src="https://www.intactfc.com/favicon.ico" alt="Intact Logo" class="timeline-logo-small">
-            <div>
-              <h3>Intact Financial Corporation</h3>
-              <span class="timeline-date">2022 – Present</span>
-            </div>
+  <section id="timeline">
+  <h2>📍The Path That Got Me Here</h2>
+  <div class="timeline-vertical">
+    <!-- Intact Financial Corporation -->
+    <div class="timeline-row">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <img src="images/intact-logo.jpg" alt="Intact Logo" class="timeline-logo">
+          <div>
+            <span class="timeline-company">Intact Financial Corporation</span>
+            <span class="timeline-dates">2022 – Present</span>
           </div>
-          <div class="timeline-role">Security Analyst</div>
-          <div class="timeline-desc">Hunted threats, responded to incidents, and improved detection coverage for a Fortune 500 insurer.</div>
         </div>
-        <span class="timeline-dot"></span>
+        <span class="timeline-role">Security Analyst</span>
+        <span class="timeline-desc">
+          Hunted threats, responded to incidents, and improved detection coverage for a Fortune 500 insurer.
+        </span>
       </div>
-
-      <!-- LCM Security -->
-      <div class="timeline-item right" data-aos="fade-left">
-        <div class="timeline-content upgraded-timeline-card">
-          <div class="timeline-header">
-            <img src="https://www.lcmsecurity.com/favicon.ico" alt="LCM Logo" class="timeline-logo-small">
-            <div>
-              <h3>LCM Security</h3>
-              <span class="timeline-date">2021 – 2022</span>
-            </div>
+    </div>
+    <!-- LCM Security -->
+    <div class="timeline-row">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <img src="images/lcm-logo.jpg" alt="LCM Logo" class="timeline-logo">
+          <div>
+            <span class="timeline-company">LCM Security</span>
+            <span class="timeline-dates">2021 – 2022</span>
           </div>
-          <div class="timeline-role">Jr. Security Analyst</div>
-          <div class="timeline-desc">Assisted in vulnerability assessments, phishing simulations, and SOC process optimization.</div>
         </div>
-        <span class="timeline-dot"></span>
+        <span class="timeline-role">Jr. Security Analyst</span>
+        <span class="timeline-desc">
+          Assisted in vulnerability assessments, phishing simulations, and SOC process optimization.
+        </span>
       </div>
-
-      <!-- HDFC Bank -->
-      <div class="timeline-item left" data-aos="fade-right">
-        <div class="timeline-content upgraded-timeline-card">
-          <div class="timeline-header">
-            <img src="https://www.hdfcbank.com/favicon.ico" alt="HDFC Logo" class="timeline-logo-small">
-            <div>
-              <h3>HDFC Bank</h3>
-              <span class="timeline-date">2018 – 2020</span>
-            </div>
+    </div>
+    <!-- HDFC Bank -->
+    <div class="timeline-row">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <img src="images/hdfc-logo.png" alt="HDFC Logo" class="timeline-logo">
+          <div>
+            <span class="timeline-company">HDFC Bank</span>
+            <span class="timeline-dates">2018 – 2020</span>
           </div>
-          <div class="timeline-role">Cyber Risk Manager</div>
-          <div class="timeline-desc">Led cyber risk reviews, compliance, and security awareness for India's largest private bank.</div>
         </div>
-        <span class="timeline-dot"></span>
+        <span class="timeline-role">Cyber Risk Manager</span>
+        <span class="timeline-desc">
+          Led cyber risk reviews, compliance, and security awareness for India's largest private bank.
+        </span>
       </div>
     </div>
   </div>
 </section>
-  
+
+<style>
+.timeline-vertical {
+  position: relative;
+  margin: 50px 0 0 0;
+  padding-left: 32px;
+  border-left: 4px solid #007acc;
+}
+
+.timeline-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 42px;
+}
+
+.timeline-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid #007acc;
+  position: absolute;
+  left: -43px;
+  top: 28px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.timeline-card {
+  background: #f7fafc;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,122,204,0.07);
+  padding: 18px 20px 14px 20px;
+  margin-left: 28px;
+  min-width: 270px;
+  max-width: 430px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+.timeline-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: #fff;
+  object-fit: contain;
+  border: 1.5px solid #e5e8ef;
+  box-shadow: 0 2px 8px rgba(0,122,204,0.07);
+}
+.timeline-company {
+  font-weight: 700;
+  color: #007acc;
+  font-size: 1.11rem;
+  display: block;
+}
+.timeline-dates {
+  font-size: 0.93rem;
+  color: #6b7280;
+  display: block;
+}
+.timeline-role {
+  font-size: 1.04rem;
+  font-weight: bold;
+  color: #222f3e;
+  margin-bottom: 2px;
+  display: block;
+}
+.timeline-desc {
+  font-size: 0.97rem;
+  color: #5d6b7a;
+  margin-top: 3px;
+  display: block;
+}
+
+/* Responsive for mobile */
+@media (max-width: 650px) {
+  .timeline-vertical {
+    padding-left: 18px;
+    border-left-width: 3px;
+  }
+  .timeline-row {
+    margin-bottom: 28px;
+  }
+  .timeline-dot {
+    width: 15px;
+    height: 15px;
+    border-width: 3px;
+    left: -26px;
+    top: 20px;
+  }
+  .timeline-card {
+    margin-left: 12px;
+    min-width: 180px;
+    max-width: 99vw;
+    padding: 12px 10px 10px 12px;
+  }
+  .timeline-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+  }
+}
+</style>
 <!-- Tools and Technologies -->
 <section id="tools">
   <h2>🧰 Stuff I Tame Threats With...</h2>
