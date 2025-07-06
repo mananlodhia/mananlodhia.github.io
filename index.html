@@ -565,10 +565,30 @@
     </nav>
   </section>
 
-  <!-- Footer -->
+<!-- Footer -->
 <footer>
-  <p id="quote"></p>
+  <hr style="border: none; border-top: 1.5px solid #e5e7eb; margin-bottom: 24px; width: 90%; max-width: 800px;"/>
+  <p id="quote" style="font-style: italic; color: #56677b; font-size: 1.18rem; opacity: 0.8;"></p>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const quotes = [
+      "Every breach tells a story. Our job is to read between the packets.",
+      "He who conquers others is strong; he who conquers himself is mighty.",
+      "To know others is intelligence. To know yourself is true wisdom.",
+      "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+      "All warfare is based on deception.",
+      "The supreme art of war is to subdue the enemy without fighting.",
+      "Victorious warriors win first and then go to war, while defeated warriors go to war first and then seek to win.",
+      "The difference between a good day and an incident is one missed log.",
+      "The quieter you become, the more you can hear.",
+      "Trust, but verify."
+    ];
+    document.getElementById('quote').textContent =
+      quotes[Math.floor(Math.random() * quotes.length)];
+  });
+</script>
 
   <!-- AOS Animation -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -578,19 +598,5 @@
       once: true
     });
   </script>
-  <script>
-  const quotes = [
-    "Every breach tells a story. Our job is to read between the packets.",
-    "He who conquers others is strong; he who conquers himself is mighty.",
-    "To know others is intelligence. To know yourself is true wisdom.",
-    "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
-    "All warfare is based on deception."
-    "The supreme art of war is to subdue the enemy without fighting."
-    "Victorious warriors win first and then go to war, while defeated warriors go to war first and then seek to win.",
-    "The difference between a good day and an incident is one missed log.",
-    "The quieter you become, the more you can hear",
-  ];
-  document.getElementById('quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
-</script>
 </body>
 </html>
