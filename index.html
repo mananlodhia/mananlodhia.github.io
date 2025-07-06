@@ -4,143 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cyberfolio | Manan Lodhia</title>
+
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap" rel="stylesheet">
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #0a0a0a;
       --accent: #007acc;
-      --light-bg: #f6f8fa;
-      --light-text: #1e293b;
-      --muted: #6b7280;
-      --card-bg: #f3f7fa;
+      --primary: #1e293b;
       --section-bg: #f6f8fa;
-      --shadow: 0 4px 28px rgba(0,122,204,0.07);
+      --card-bg: #f9fafb;
+      --muted: #6b7280;
       --radius: 18px;
-      --timeline-dot: #fff;
-      --timeline-dot-border: #007acc;
+      --shadow: 0 4px 28px rgba(0,122,204,0.07);
     }
-    html { scroll-behavior: smooth; }
     body {
       font-family: 'Figtree', sans-serif;
-      background: var(--light-bg);
-      color: var(--light-text);
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      position: relative;
+      background: var(--section-bg);
+      color: var(--primary);
     }
-    /* Subtle shield watermark */
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: 18px;
-      right: 18px;
-      width: 130px;
-      height: 130px;
-      background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M60 10l40 16v32c0 33-40 52-40 52S20 91 20 58V26l40-16z" fill="%23007acc" fill-opacity="0.07"/></svg>') no-repeat center/contain;
-      pointer-events: none;
-      z-index: 0;
-    }
-    section {
+    .bg-accent { background: var(--accent) !important; color: #fff; }
+    .section {
       background: var(--section-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      margin: 50px auto;
+      margin: 2.5rem auto;
       max-width: 950px;
-      padding: 3.3rem 2rem;
+      padding: 3rem 2rem;
       position: relative;
     }
-    #intro {
-      background: linear-gradient(120deg, #eaf4fb 60%, #fff 100%);
-      box-shadow: none;
-      margin-top: 0;
-      margin-bottom: 36px;
-    }
-    h1, h2, h3 {
+    .section-title {
       color: var(--accent);
       font-weight: 700;
-      margin-top: 0;
+      margin-bottom: 2rem;
+      font-size: 2rem;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    h2 { font-size: 2rem; margin-bottom: 20px; }
-    h3 { font-size: 1.2rem; margin-bottom: 4px; }
-    /* Header */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 38px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    .header img {
-      width: 152px;
+    .muted { color: var(--muted); }
+    .profile-img {
+      width: 140px;
       border-radius: 50%;
       border: 4px solid var(--accent);
-      box-shadow: 0 2px 10px rgba(0,122,204,0.12);
+      box-shadow: 0 2px 10px rgba(0,122,204,0.09);
       background: #fff;
-      transition: transform 0.2s;
     }
-    .header img:hover {
-      transform: scale(1.04) rotate(-2deg);
-      box-shadow: 0 8px 32px rgba(0,122,204,0.13);
+    .intro-highlight {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.08rem;
+      margin-top: 0.7rem;
     }
-    .header-text { flex: 1; min-width: 230px; }
-    .header-text p { margin-bottom: 0; font-size: 1.15rem; color: var(--muted);}
-    /* Value Box */
-    .value-box {
-      background: var(--card-bg);
-      border-left: 5px solid #c6e2f9;
-      padding: 22px 24px;
-      margin-top: 20px;
-      border-radius: 8px;
-      font-size: 1.03rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    }
-    .value-box ul { margin: 0 0 0 1em; padding-left: 12px;}
-    .value-box li { margin-bottom: 6px; line-height: 1.55;}
     /* Timeline */
-    #timeline { box-shadow: none; background: transparent; }
-    .timeline-vertical {
+    .timeline {
+      border-left: 4px solid var(--accent);
       position: relative;
-      margin: 0 auto 0 0;
-      padding-left: 32px;
-      border-left: 4px solid #007acc;
-      max-width: 680px;
+      margin: 1rem 0 0 0;
+      padding-left: 2.5rem;
     }
-    .timeline-row {
+    .timeline-entry {
       position: relative;
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 42px;
+      margin-bottom: 2.7rem;
     }
     .timeline-dot {
+      position: absolute;
+      left: -38px;
+      top: 10px;
       width: 22px;
       height: 22px;
-      border-radius: 50%;
       background: #fff;
-      border: 4px solid #007acc;
-      position: absolute;
-      left: -43px;
-      top: 36px;
-      z-index: 2;
+      border: 4px solid var(--accent);
+      border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      z-index: 2;
     }
     .timeline-card {
-      background: #f8fafc;
-      border-radius: 14px;
+      background: var(--card-bg);
+      border-radius: 15px;
       box-shadow: 0 2px 16px rgba(0,122,204,0.07);
-      padding: 20px 22px 14px 22px;
-      margin-left: 28px;
-      min-width: 270px;
+      padding: 1.3rem 1.4rem 1rem 1.4rem;
+      margin-left: 1.2rem;
+      min-width: 240px;
       max-width: 430px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+      position: relative;
     }
     .timeline-header {
       display: flex;
@@ -151,62 +99,79 @@
     .timeline-logo {
       width: 38px;
       height: 38px;
-      border-radius: 9px;
-      background: #fff;
+      border-radius: 7px;
       object-fit: contain;
+      background: #fff;
       border: 1.5px solid #e5e8ef;
       box-shadow: 0 2px 8px rgba(0,122,204,0.07);
     }
     .timeline-company {
+      color: var(--accent);
       font-weight: 700;
-      color: #007acc;
-      font-size: 1.11rem;
-      display: block;
+      font-size: 1.09rem;
     }
     .timeline-dates {
-      font-size: 0.93rem;
-      color: #6b7280;
-      display: block;
+      color: var(--muted);
+      font-size: 0.97rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
     }
     .timeline-role {
-      font-size: 1.04rem;
-      font-weight: bold;
+      font-weight: 600;
       color: #222f3e;
+      font-size: 1.04rem;
       margin-bottom: 2px;
       display: block;
     }
     .timeline-desc {
-      font-size: 0.97rem;
+      font-size: 0.98rem;
       color: #5d6b7a;
       margin-top: 3px;
       display: block;
     }
-    /* Tools grid */
+    /* Tools */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-      gap: 30px;
-      margin-top: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
     .tool-card {
-      background: #f7fafc;
-      border-radius: 14px;
-      box-shadow: 0 2px 16px rgba(0,122,204,0.07);
-      padding: 20px 18px 16px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      background: var(--card-bg);
+      border-radius: 13px;
+      box-shadow: 0 2px 9px rgba(0,122,204,0.07);
+      padding: 1rem 1rem 0.8rem 1rem;
+      transition: .16s;
     }
     .tool-card:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 8px 32px rgba(0,122,204,0.13);
+      box-shadow: 0 8px 28px rgba(0,122,204,0.13);
       background: #f1f8fd;
+      transform: translateY(-3px) scale(1.03);
     }
-    .tool-icon { font-size: 2rem; margin-bottom: 10px; }
-    .tool-card h3 { font-size: 1.12rem; margin: 0 0 7px 0; color: #007acc;}
-    .tool-card p { font-size: 1.01rem; color: #475569; margin: 0;}
-    /* Contact Links */
+    .tool-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .tool-card h3 {
+      font-size: 1.09rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+      margin-top: 0;
+    }
+    .tool-card p {
+      color: #475569;
+      font-size: 1.01rem;
+      margin: 0;
+    }
+    .value-box {
+      background: var(--card-bg);
+      border-left: 5px solid #c6e2f9;
+      padding: 22px 24px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 1.03rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
     .contact-links {
       margin-top: 22px;
       display: flex;
@@ -227,7 +192,6 @@
       text-decoration: none;
       transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
       box-shadow: 0 2px 6px rgba(0,122,204,0.05);
-      outline: none;
     }
     .contact-links a:hover, .contact-links a:focus {
       background: var(--accent);
@@ -242,10 +206,8 @@
       padding: 28px 0 18px 0;
       color: var(--muted);
       font-style: italic;
-      border: none;
-      background: none;
       font-size: 1.08rem;
-      margin-bottom: 0;
+      background: transparent;
     }
     footer hr {
       border: none;
@@ -265,52 +227,39 @@
       line-height: 1.5;
       transition: color 0.18s;
     }
-    /* Responsive Design */
     @media (max-width: 900px) {
-      section {
+      .section {
         max-width: 99vw;
-        padding: 36px 7vw;
+        padding: 2.1rem 2vw;
       }
-    }
-    @media (max-width: 800px) {
-      .header {
-        flex-direction: column;
-        gap: 18px;
-        text-align: center;
-      }
-      .header img { margin-bottom: 10px; }
-      .timeline-vertical { max-width: 99vw; }
-      .timeline-card { min-width: 180px; max-width: 99vw;}
     }
     @media (max-width: 650px) {
-      section { padding: 18px 2vw; margin: 15px auto; }
-      .timeline-vertical { padding-left: 15px; border-left-width: 3px;}
-      .timeline-row { margin-bottom: 30px;}
-      .timeline-dot { width: 15px; height: 15px; left: -26px; top: 27px;}
-      .timeline-card { margin-left: 10px; padding: 12px 7px 10px 10px;}
-      .timeline-logo { width: 28px; height: 28px; border-radius: 5px;}
+      .profile-img { width: 90px;}
+      .section { padding: 1rem 1vw; margin: 12px auto;}
+      .timeline-card { min-width: 150px; max-width: 99vw; padding: 10px 8px 10px 8px;}
+      .timeline-logo { width: 26px; height: 26px;}
+      .timeline { padding-left: 16px; border-left-width: 3px;}
+      .timeline-dot { width: 15px; height: 15px; left: -22px;}
+      .tools-grid { grid-template-columns: 1fr; gap: 0.9rem;}
     }
   </style>
 </head>
 <body>
-
 <!-- Intro -->
-<section id="intro" data-aos="fade-down">
-  <header class="header">
-    <div class="header-text">
-      <h1>Manan Lodhia</h1>
-      <p>Cybersecurity Analyst &nbsp;|&nbsp; Threat Hunter &nbsp;|&nbsp; Defender of Digital Frontiers</p>
-      <p style="font-size:1.08rem; color:#007acc; margin-top:10px;">
-        <strong>🚀 I’m currently open to new cybersecurity opportunities—let’s connect!</strong>
-      </p>
+<section class="section" id="intro" data-aos="fade-down">
+  <div class="d-flex flex-wrap align-items-center gap-4">
+    <div class="flex-grow-1">
+      <h1 class="mb-1">Manan Lodhia</h1>
+      <p class="mb-1 muted">Cybersecurity Analyst &nbsp;|&nbsp; Threat Hunter &nbsp;|&nbsp; Defender of Digital Frontiers</p>
+      <p class="intro-highlight">🚀 I’m currently open to new cybersecurity opportunities—let’s connect!</p>
     </div>
-    <img src="images/manan-profile.jpeg" alt="Manan Lodhia">
-  </header>
+    <img src="images/manan-profile.jpeg" alt="Manan Lodhia" class="profile-img ms-lg-4 mx-auto">
+  </div>
 </section>
-  
-<!-- What I Bring to Your Team -->
-<section id="value-prop" data-aos="fade-up">
-  <h2>🛡️ What I Bring to Your Team...</h2>
+
+<!-- Value/USP -->
+<section class="section" id="value-prop" data-aos="fade-up">
+  <h2 class="section-title">🛡️ What I Bring to Your Team...</h2>
   <div class="value-box">
     <ul>
       <li>⚙️ Deep hands-on experience with SIEMs, EDRs, and threat intelligence platforms</li>
@@ -322,17 +271,17 @@
 </section>
 
 <!-- Timeline -->
-<section id="timeline">
-  <h2 class="mb-5 text-primary fw-bold" data-aos="fade-up"><span style="font-size:1.5rem;">📍</span> The Path That Got Me Here</h2>
-  <div class="timeline-vertical">
+<section class="section" id="timeline" style="background:transparent;box-shadow:none;">
+  <h2 class="section-title" data-aos="fade-up"><span style="font-size:1.5rem;">📍</span> The Path That Got Me Here</h2>
+  <div class="timeline" data-aos="fade-right">
     <!-- Intact Financial Corporation -->
-    <div class="timeline-row" data-aos="fade-right">
+    <div class="timeline-entry">
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <div class="timeline-header">
           <img src="images/intact-logo.jpg" alt="Intact Logo" class="timeline-logo">
           <div>
-            <span class="timeline-company">Intact Financial Corporation</span>
+            <span class="timeline-company">Intact Financial Corporation</span><br>
             <span class="timeline-dates">2022 – Present</span>
           </div>
         </div>
@@ -343,13 +292,13 @@
       </div>
     </div>
     <!-- LCM Security -->
-    <div class="timeline-row" data-aos="fade-left">
+    <div class="timeline-entry" data-aos="fade-left">
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <div class="timeline-header">
           <img src="images/lcm-logo.jpg" alt="LCM Logo" class="timeline-logo">
           <div>
-            <span class="timeline-company">LCM Security</span>
+            <span class="timeline-company">LCM Security</span><br>
             <span class="timeline-dates">2021 – 2022</span>
           </div>
         </div>
@@ -360,13 +309,13 @@
       </div>
     </div>
     <!-- HDFC Bank -->
-    <div class="timeline-row" data-aos="fade-right">
+    <div class="timeline-entry" data-aos="fade-right">
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <div class="timeline-header">
           <img src="images/hdfc-logo.png" alt="HDFC Logo" class="timeline-logo">
           <div>
-            <span class="timeline-company">HDFC Bank</span>
+            <span class="timeline-company">HDFC Bank</span><br>
             <span class="timeline-dates">2018 – 2020</span>
           </div>
         </div>
@@ -380,8 +329,8 @@
 </section>
 
 <!-- Tools and Technologies -->
-<section id="tools" data-aos="fade-up">
-  <h2>🧰 Stuff I Tame Threats With...</h2>
+<section class="section" id="tools" data-aos="fade-up">
+  <h2 class="section-title">🧰 Stuff I Tame Threats With...</h2>
   <div class="tools-grid">
     <div class="tool-card">
       <span class="tool-icon">🔎</span>
@@ -447,39 +396,39 @@
 </section>
 
 <!-- Education -->
-<section id="education" data-aos="fade-up">
-  <h2>🧠📚 Where It All Started...</h2>
+<section class="section" id="education" data-aos="fade-up">
+  <h2 class="section-title">🧠📚 Where It All Started...</h2>
   <div class="value-box">
     <ul style="list-style:none; padding-left:0;">
       <li>
-        <strong>LAMBTON COLLEGE</strong> <span style="color: #6b7280;">— Mississauga, ON</span><br>
-        Graduate Certificate in Cybersecurity and Computer Forensics <span style="color: #6b7280;">(2022-2023)</span>
+        <strong>LAMBTON COLLEGE</strong> <span class="muted">— Mississauga, ON</span><br>
+        Graduate Certificate in Cybersecurity and Computer Forensics <span class="muted">(2022-2023)</span>
       </li>
       <li style="margin-top:18px;">
-        <strong>CENTRE FOR DEVELOPMENT OF ADVANCED COMPUTING (C-DAC)</strong> <span style="color: #6b7280;">— Pune, India</span><br>
-        Postgraduate Diploma in IT Infrastructure Systems and Security <span style="color: #6b7280;">(2019)</span>
+        <strong>CENTRE FOR DEVELOPMENT OF ADVANCED COMPUTING (C-DAC)</strong> <span class="muted">— Pune, India</span><br>
+        Postgraduate Diploma in IT Infrastructure Systems and Security <span class="muted">(2019)</span>
       </li>
       <li style="margin-top:18px;">
-        <strong>GUJARAT TECHNOLOGICAL UNIVERSITY</strong> <span style="color: #6b7280;">— Gujarat, India</span><br>
-        Bachelor of Engineering in Computer Engineering <span style="color: #6b7280;">(2014-2018)</span>
+        <strong>GUJARAT TECHNOLOGICAL UNIVERSITY</strong> <span class="muted">— Gujarat, India</span><br>
+        Bachelor of Engineering in Computer Engineering <span class="muted">(2014-2018)</span>
       </li>
     </ul>
   </div>
 </section>
-  
+
 <!-- Hobbies -->
-<section id="hobbies" data-aos="fade-up">
-  <h2>🧘 Off the clock, when I'm not hunting threats...</h2>
+<section class="section" id="hobbies" data-aos="fade-up">
+  <h2 class="section-title">🧘 Off the clock, when I'm not hunting threats...</h2>
   <ul style="font-size:1.15rem; line-height: 2; list-style: none; padding-left: 0; margin-top: 18px;">
     <li>🎥 Watching anime series</li>
     <li>🚶‍♀️ Taking long walks on nature trails</li>
     <li>🍳 Cooking for friends and family</li>
   </ul>
 </section>
-  
+
 <!-- Contact -->
-<section id="contact" data-aos="fade-up">
-  <h2>📬 Slide Into My Inbox</h2>
+<section class="section" id="contact" data-aos="fade-up">
+  <h2 class="section-title">📬 Slide Into My Inbox</h2>
   <nav class="contact-links" aria-label="Contact Links">
     <a href="mailto:manan@email.com" title="Email Manan Lodhia">Email</a>
     <a href="https://www.linkedin.com/in/manan-lodhia" target="_blank" rel="noopener" title="LinkedIn Profile">LinkedIn</a>
@@ -496,12 +445,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
-</script>
-<script>
+  AOS.init({ duration: 1000, once: true });
   document.addEventListener("DOMContentLoaded", function() {
     const quotes = [
       "Every breach tells a story. Our job is to read between the packets.",
