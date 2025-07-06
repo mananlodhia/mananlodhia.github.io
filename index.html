@@ -32,6 +32,20 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
+      position: relative;
+    }
+
+    /* Subtle shield watermark */
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 170px;
+      height: 170px;
+      background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M60 10l40 16v32c0 33-40 52-40 52S20 91 20 58V26l40-16z" fill="%23007acc" fill-opacity="0.07"/></svg>') no-repeat center/contain;
+      pointer-events: none;
+      z-index: 0;
     }
 
     section {
@@ -118,10 +132,10 @@
       line-height: 1.55;
     }
 
-    /* Timeline */
+    /* Timeline Upgrade */
     .timeline-container {
       position: relative;
-      padding: 60px 0;
+      padding: 60px 0 20px 0;
     }
     .timeline-line {
       position: absolute;
@@ -132,6 +146,7 @@
       transform: translateX(-50%);
       z-index: 0;
       border-radius: 2px;
+      min-height: 320px;
     }
     .timeline-list {
       display: flex;
@@ -142,41 +157,80 @@
     }
     .timeline-item {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: flex-start;
+      align-items: flex-start;
       position: relative;
+      width: 100%;
+    }
+    .timeline-item.left,
+    .timeline-item.right {
+      flex-direction: row;
+    }
+    .timeline-item.right {
+      flex-direction: row-reverse;
+    }
+    .timeline-content.upgraded-timeline-card {
+      background: #f1f7fb;
+      border-left: 5px solid #007acc;
+      border-radius: 12px;
+      padding: 20px 22px 16px 22px;
+      box-shadow: 0 2px 10px rgba(0,122,204,0.06);
+      margin-bottom: 0;
+      min-width: 320px;
+      width: 47%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .timeline-item.left .upgraded-timeline-card {
+      margin-right: 36px;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .timeline-item.right .upgraded-timeline-card {
+      margin-left: 36px;
+      align-items: flex-start;
+      text-align: left;
     }
 
-    .timeline-content {
-      background: var(--card-bg);
-      padding: 22px 22px 16px 22px;
-      border-radius: 10px;
-      min-width: 190px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-      border: 1.5px solid #e3eaf0;
-      position: relative;
-    }
-
-    .timeline-logo {
+    .timeline-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 45%;
-      min-width: 80px;
+      gap: 15px;
+      margin-bottom: 7px;
     }
-    .timeline-logo img {
-      width: 66px;
-      height: 66px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2.5px solid #e5e8ef;
+    .timeline-logo-small {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
+      border: 1.5px solid #e5e8ef;
+      box-shadow: 0 2px 8px rgba(0,122,204,0.09);
+      object-fit: contain;
     }
-    .timeline-logo img:hover {
-      transform: scale(1.06) rotate(2deg);
-      border-color: var(--accent);
+    .timeline-header h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      color: #007acc;
+    }
+    .timeline-date {
+      font-size: 0.98rem;
+      color: #6b7280;
+      font-weight: 500;
+      display: block;
+    }
+    .timeline-role {
+      font-size: 1.04rem;
+      font-weight: bold;
+      color: #222f3e;
+      margin-top: 2px;
+    }
+    .timeline-desc {
+      font-size: 0.97rem;
+      color: #5d6b7a;
+      margin-top: 5px;
     }
 
     /* Timeline Dots */
@@ -184,40 +238,20 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      top: 50%;
-      margin-top: -13px;
+      top: 32px;
       width: 26px;
       height: 26px;
       background: var(--timeline-dot);
       border: 4px solid var(--timeline-dot-border);
       border-radius: 50%;
       box-shadow: 0 3px 10px rgba(0,122,204,0.09);
-      z-index: 2;
+      z-index: 3;
       animation: popdot 0.6s cubic-bezier(0.7,1.6,0.6,1.15);
     }
     @keyframes popdot {
       0% { transform: translateX(-50%) scale(0.7);}
       70%{transform: translateX(-50%) scale(1.18);}
       100%{transform: translateX(-50%) scale(1);}
-    }
-
-    /* Timeline item direction */
-    .timeline-item.left .timeline-content {
-      order: 1;
-      text-align: right;
-      width: 45%;
-    }
-    .timeline-item.left .timeline-logo {
-      order: 2;
-    }
-    .timeline-item.right .timeline-logo {
-      order: 1;
-      justify-content: flex-end;
-    }
-    .timeline-item.right .timeline-content {
-      order: 2;
-      text-align: left;
-      width: 45%;
     }
 
     /* Contact Links */
@@ -326,6 +360,32 @@
         padding: 36px 7vw;
       }
     }
+    @media (max-width: 950px) {
+      .timeline-content.upgraded-timeline-card {
+        min-width: 230px;
+        width: 92vw;
+        max-width: 400px;
+      }
+      .timeline-item.left .upgraded-timeline-card,
+      .timeline-item.right .upgraded-timeline-card {
+        margin: 0 0 0 0;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .timeline-dot {
+        left: 18px;
+        transform: none;
+      }
+      .timeline-line {
+        left: 33px;
+        width: 4px;
+        transform: none;
+      }
+      .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+    }
     @media (max-width: 750px) {
       .header {
         flex-direction: column;
@@ -338,33 +398,21 @@
       .timeline-list {
         gap: 34px;
       }
-      .timeline-item,
-      .timeline-item.left,
-      .timeline-item.right {
-        flex-direction: column;
-        gap: 14px;
-        text-align: center;
-        align-items: flex-start;
-      }
       .timeline-content,
       .timeline-logo {
         width: 100%!important;
         min-width: unset;
-        text-align: center!important;
-        justify-content: center!important;
+        text-align: left!important;
+        justify-content: flex-start!important;
       }
       .timeline-dot {
-        left: 13px;
+        left: 18px;
         transform: none;
       }
       .timeline-line {
-        left: 25px;
+        left: 33px;
         width: 4px;
         transform: none;
-      }
-      .timeline-content {
-        margin-top: 0;
-        text-align: left;
       }
       section {
         padding: 22px 2vw;
@@ -379,7 +427,7 @@
       h2 { font-size: 1.35rem; }
       .contact-links a { font-size: 0.97rem; padding: 9px 10px; }
       .header img { width: 100px;}
-      .timeline-logo img { width: 44px; height: 44px;}
+      .timeline-logo-small { width: 30px; height: 30px;}
       .timeline-dot { width: 16px; height: 16px; margin-top: -8px; border-width: 3px;}
     }
   </style>
@@ -413,52 +461,60 @@
   </div>
 </section>
 
-<!-- Timeline -->
+<!-- Timeline (Upgraded) -->
 <section id="timeline">
   <h2 data-aos="fade-up">📍The Path That Got Me Here</h2>
   <div class="timeline-container">
     <div class="timeline-line"></div>
     <div class="timeline-list">
 
-      <!-- Intact -->
+      <!-- Intact Financial Corporation -->
       <div class="timeline-item left" data-aos="fade-right">
-        <div class="timeline-content">
-          <h3>Intact Financial Corporation</h3>
-          <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2022 – Present</p>
-          <p style="margin: 0.5rem 0 0;">Security Analyst</p>
+        <div class="timeline-content upgraded-timeline-card">
+          <div class="timeline-header">
+            <img src="https://www.intactfc.com/favicon.ico" alt="Intact Logo" class="timeline-logo-small">
+            <div>
+              <h3>Intact Financial Corporation</h3>
+              <span class="timeline-date">2022 – Present</span>
+            </div>
+          </div>
+          <div class="timeline-role">Security Analyst</div>
+          <div class="timeline-desc">Hunted threats, responded to incidents, and improved detection coverage for a Fortune 500 insurer.</div>
         </div>
         <span class="timeline-dot"></span>
-        <div class="timeline-logo">
-          <img src="images/nt.jpg" alt="Intact Logo">
-        </div>
       </div>
 
-      <!-- LCM -->
+      <!-- LCM Security -->
       <div class="timeline-item right" data-aos="fade-left">
-        <div class="timeline-logo">
-          <img src="images/lcm.png" alt="LCM Logo">
+        <div class="timeline-content upgraded-timeline-card">
+          <div class="timeline-header">
+            <img src="https://www.lcmsecurity.com/favicon.ico" alt="LCM Logo" class="timeline-logo-small">
+            <div>
+              <h3>LCM Security</h3>
+              <span class="timeline-date">2021 – 2022</span>
+            </div>
+          </div>
+          <div class="timeline-role">Jr. Security Analyst</div>
+          <div class="timeline-desc">Assisted in vulnerability assessments, phishing simulations, and SOC process optimization.</div>
         </div>
         <span class="timeline-dot"></span>
-        <div class="timeline-content">
-          <h3>LCM Security</h3>
-          <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2021 – 2022</p>
-          <p style="margin: 0.5rem 0 0;">Jr. Security Analyst</p>
-        </div>
       </div>
 
-      <!-- HDFC -->
+      <!-- HDFC Bank -->
       <div class="timeline-item left" data-aos="fade-right">
-        <div class="timeline-content">
-          <h3>HDFC Bank</h3>
-          <p style="margin: 0; font-size: 0.93rem; color: var(--muted);">2018 – 2020</p>
-          <p style="margin: 0.5rem 0 0;">Cyber Risk Manager</p>
+        <div class="timeline-content upgraded-timeline-card">
+          <div class="timeline-header">
+            <img src="https://www.hdfcbank.com/favicon.ico" alt="HDFC Logo" class="timeline-logo-small">
+            <div>
+              <h3>HDFC Bank</h3>
+              <span class="timeline-date">2018 – 2020</span>
+            </div>
+          </div>
+          <div class="timeline-role">Cyber Risk Manager</div>
+          <div class="timeline-desc">Led cyber risk reviews, compliance, and security awareness for India's largest private bank.</div>
         </div>
         <span class="timeline-dot"></span>
-        <div class="timeline-logo">
-          <img src="images/hdf.jpg" alt="HDFC Logo">
-        </div>
       </div>
-
     </div>
   </div>
 </section>
