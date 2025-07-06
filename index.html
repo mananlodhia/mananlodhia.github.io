@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cyberfolio | Manan Lodhia</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
@@ -15,16 +19,12 @@
       --muted: #6b7280;
       --card-bg: #f3f7fa;
       --section-bg: #f6f8fa;
-      --shadow: 0 6px 32px rgba(0,122,204,0.04);
+      --shadow: 0 4px 28px rgba(0,122,204,0.07);
       --radius: 18px;
       --timeline-dot: #fff;
       --timeline-dot-border: #007acc;
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Figtree', sans-serif;
       background: var(--light-bg);
@@ -34,63 +34,49 @@
       min-height: 100vh;
       position: relative;
     }
-
     /* Subtle shield watermark */
     body::after {
       content: '';
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 170px;
-      height: 170px;
+      bottom: 18px;
+      right: 18px;
+      width: 130px;
+      height: 130px;
       background: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M60 10l40 16v32c0 33-40 52-40 52S20 91 20 58V26l40-16z" fill="%23007acc" fill-opacity="0.07"/></svg>') no-repeat center/contain;
       pointer-events: none;
       z-index: 0;
     }
-
     section {
-      padding: 56px 26px;
-      max-width: 930px;
-      margin: 48px auto;
       background: var(--section-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      margin: 50px auto;
+      max-width: 950px;
+      padding: 3.3rem 2rem;
+      position: relative;
     }
-
     #intro {
       background: linear-gradient(120deg, #eaf4fb 60%, #fff 100%);
       box-shadow: none;
       margin-top: 0;
       margin-bottom: 36px;
     }
-
     h1, h2, h3 {
       color: var(--accent);
       font-weight: 700;
       margin-top: 0;
     }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 4px;
-    }
-
+    h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    h2 { font-size: 2rem; margin-bottom: 20px; }
+    h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    /* Header */
     .header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 38px;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
-
     .header img {
       width: 152px;
       border-radius: 50%;
@@ -103,157 +89,123 @@
       transform: scale(1.04) rotate(-2deg);
       box-shadow: 0 8px 32px rgba(0,122,204,0.13);
     }
-
-    .header-text {
-      flex: 1;
-      min-width: 230px;
-    }
-    .header-text p {
-      margin-bottom: 0;
-      font-size: 1.15rem;
-      color: var(--muted);
-    }
-
+    .header-text { flex: 1; min-width: 230px; }
+    .header-text p { margin-bottom: 0; font-size: 1.15rem; color: var(--muted);}
+    /* Value Box */
     .value-box {
       background: var(--card-bg);
       border-left: 5px solid #c6e2f9;
       padding: 22px 24px;
       margin-top: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
       border-radius: 8px;
       font-size: 1.03rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
-    .value-box ul {
-      margin: 0 0 0 1em;
-      padding-left: 12px;
-    }
-    .value-box li {
-      margin-bottom: 6px;
-      line-height: 1.55;
-    }
-
-    /* Timeline Upgrade */
-    .timeline-container {
+    .value-box ul { margin: 0 0 0 1em; padding-left: 12px;}
+    .value-box li { margin-bottom: 6px; line-height: 1.55;}
+    /* Timeline */
+    #timeline { box-shadow: none; background: transparent; }
+    .timeline-vertical {
       position: relative;
-      padding: 60px 0 20px 0;
+      margin: 0 auto 0 0;
+      padding-left: 32px;
+      border-left: 4px solid #007acc;
+      max-width: 680px;
     }
-    .timeline-line {
+    .timeline-row {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 42px;
+    }
+    .timeline-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #007acc;
       position: absolute;
-      left: 50%;
-      top: 0; bottom: 0;
-      width: 4px;
-      background: var(--accent);
-      transform: translateX(-50%);
-      z-index: 0;
-      border-radius: 2px;
-      min-height: 320px;
-    }
-    .timeline-list {
-      display: flex;
-      flex-direction: column;
-      gap: 68px;
-      position: relative;
-      z-index: 1;
-    }
-    .timeline-item {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      position: relative;
-      width: 100%;
-    }
-    .timeline-item.left,
-    .timeline-item.right {
-      flex-direction: row;
-    }
-    .timeline-item.right {
-      flex-direction: row-reverse;
-    }
-    .timeline-content.upgraded-timeline-card {
-      background: #f1f7fb;
-      border-left: 5px solid #007acc;
-      border-radius: 12px;
-      padding: 20px 22px 16px 22px;
-      box-shadow: 0 2px 10px rgba(0,122,204,0.06);
-      margin-bottom: 0;
-      min-width: 320px;
-      width: 47%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
+      left: -43px;
+      top: 36px;
       z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
-    .timeline-item.left .upgraded-timeline-card {
-      margin-right: 36px;
-      align-items: flex-end;
-      text-align: right;
+    .timeline-card {
+      background: #f8fafc;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,122,204,0.07);
+      padding: 20px 22px 14px 22px;
+      margin-left: 28px;
+      min-width: 270px;
+      max-width: 430px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-    .timeline-item.right .upgraded-timeline-card {
-      margin-left: 36px;
-      align-items: flex-start;
-      text-align: left;
-    }
-
     .timeline-header {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 13px;
       margin-bottom: 7px;
     }
-    .timeline-logo-small {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+    .timeline-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
       background: #fff;
-      border: 1.5px solid #e5e8ef;
-      box-shadow: 0 2px 8px rgba(0,122,204,0.09);
       object-fit: contain;
+      border: 1.5px solid #e5e8ef;
+      box-shadow: 0 2px 8px rgba(0,122,204,0.07);
     }
-    .timeline-header h3 {
-      margin: 0;
-      font-size: 1.12rem;
+    .timeline-company {
+      font-weight: 700;
       color: #007acc;
+      font-size: 1.11rem;
+      display: block;
     }
-    .timeline-date {
-      font-size: 0.98rem;
+    .timeline-dates {
+      font-size: 0.93rem;
       color: #6b7280;
-      font-weight: 500;
       display: block;
     }
     .timeline-role {
       font-size: 1.04rem;
       font-weight: bold;
       color: #222f3e;
-      margin-top: 2px;
+      margin-bottom: 2px;
+      display: block;
     }
     .timeline-desc {
       font-size: 0.97rem;
       color: #5d6b7a;
-      margin-top: 5px;
+      margin-top: 3px;
+      display: block;
     }
-
-    /* Timeline Dots */
-    .timeline-dot {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 32px;
-      width: 26px;
-      height: 26px;
-      background: var(--timeline-dot);
-      border: 4px solid var(--timeline-dot-border);
-      border-radius: 50%;
-      box-shadow: 0 3px 10px rgba(0,122,204,0.09);
-      z-index: 3;
-      animation: popdot 0.6s cubic-bezier(0.7,1.6,0.6,1.15);
+    /* Tools grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 30px;
+      margin-top: 24px;
     }
-    @keyframes popdot {
-      0% { transform: translateX(-50%) scale(0.7);}
-      70%{transform: translateX(-50%) scale(1.18);}
-      100%{transform: translateX(-50%) scale(1);}
+    .tool-card {
+      background: #f7fafc;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,122,204,0.07);
+      padding: 20px 18px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
     }
-
+    .tool-card:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(0,122,204,0.13);
+      background: #f1f8fd;
+    }
+    .tool-icon { font-size: 2rem; margin-bottom: 10px; }
+    .tool-card h3 { font-size: 1.12rem; margin: 0 0 7px 0; color: #007acc;}
+    .tool-card p { font-size: 1.01rem; color: #475569; margin: 0;}
     /* Contact Links */
     .contact-links {
       margin-top: 22px;
@@ -284,7 +236,7 @@
       box-shadow: 0 4px 20px rgba(0,122,204,0.14);
       text-decoration: underline;
     }
-
+    /* Footer */
     footer {
       text-align: center;
       padding: 28px 0 18px 0;
@@ -295,8 +247,6 @@
       font-size: 1.08rem;
       margin-bottom: 0;
     }
-
-    /* Subtle footer line */
     footer hr {
       border: none;
       border-top: 1.5px solid #e5e7eb;
@@ -315,44 +265,6 @@
       line-height: 1.5;
       transition: color 0.18s;
     }
-
-    /* Tools grid */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-      gap: 32px;
-      margin-top: 24px;
-    }
-    .tool-card {
-      background: #f7fafc;
-      border-radius: 16px;
-      box-shadow: 0 2px 16px rgba(0,122,204,0.07);
-      padding: 20px 18px 16px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-    }
-    .tool-card:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 8px 32px rgba(0,122,204,0.13);
-      background: #f1f8fd;
-    }
-    .tool-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .tool-card h3 {
-      font-size: 1.12rem;
-      margin: 0 0 7px 0;
-      color: #007acc;
-    }
-    .tool-card p {
-      font-size: 1.01rem;
-      color: #475569;
-      margin: 0;
-    }
-
     /* Responsive Design */
     @media (max-width: 900px) {
       section {
@@ -360,82 +272,30 @@
         padding: 36px 7vw;
       }
     }
-    @media (max-width: 950px) {
-      .timeline-content.upgraded-timeline-card {
-        min-width: 230px;
-        width: 92vw;
-        max-width: 400px;
-      }
-      .timeline-item.left .upgraded-timeline-card,
-      .timeline-item.right .upgraded-timeline-card {
-        margin: 0 0 0 0;
-        align-items: flex-start;
-        text-align: left;
-      }
-      .timeline-dot {
-        left: 18px;
-        transform: none;
-      }
-      .timeline-line {
-        left: 33px;
-        width: 4px;
-        transform: none;
-      }
-      .timeline-item {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
-    }
-    @media (max-width: 750px) {
+    @media (max-width: 800px) {
       .header {
         flex-direction: column;
         gap: 18px;
         text-align: center;
       }
-      .header img {
-        margin-bottom: 10px;
-      }
-      .timeline-list {
-        gap: 34px;
-      }
-      .timeline-content,
-      .timeline-logo {
-        width: 100%!important;
-        min-width: unset;
-        text-align: left!important;
-        justify-content: flex-start!important;
-      }
-      .timeline-dot {
-        left: 18px;
-        transform: none;
-      }
-      .timeline-line {
-        left: 33px;
-        width: 4px;
-        transform: none;
-      }
-      section {
-        padding: 22px 2vw;
-      }
-      .tools-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
+      .header img { margin-bottom: 10px; }
+      .timeline-vertical { max-width: 99vw; }
+      .timeline-card { min-width: 180px; max-width: 99vw;}
     }
-    @media (max-width: 500px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.35rem; }
-      .contact-links a { font-size: 0.97rem; padding: 9px 10px; }
-      .header img { width: 100px;}
-      .timeline-logo-small { width: 30px; height: 30px;}
-      .timeline-dot { width: 16px; height: 16px; margin-top: -8px; border-width: 3px;}
+    @media (max-width: 650px) {
+      section { padding: 18px 2vw; margin: 15px auto; }
+      .timeline-vertical { padding-left: 15px; border-left-width: 3px;}
+      .timeline-row { margin-bottom: 30px;}
+      .timeline-dot { width: 15px; height: 15px; left: -26px; top: 27px;}
+      .timeline-card { margin-left: 10px; padding: 12px 7px 10px 10px;}
+      .timeline-logo { width: 28px; height: 28px; border-radius: 5px;}
     }
   </style>
 </head>
 <body>
 
 <!-- Intro -->
-<section id="intro">
+<section id="intro" data-aos="fade-down">
   <header class="header">
     <div class="header-text">
       <h1>Manan Lodhia</h1>
@@ -449,7 +309,7 @@
 </section>
   
 <!-- What I Bring to Your Team -->
-<section id="value-prop">
+<section id="value-prop" data-aos="fade-up">
   <h2>🛡️ What I Bring to Your Team...</h2>
   <div class="value-box">
     <ul>
@@ -460,11 +320,13 @@
     </ul>
   </div>
 </section>
-  <section id="timeline">
-  <h2>📍The Path That Got Me Here</h2>
+
+<!-- Timeline -->
+<section id="timeline">
+  <h2 class="mb-5 text-primary fw-bold" data-aos="fade-up"><span style="font-size:1.5rem;">📍</span> The Path That Got Me Here</h2>
   <div class="timeline-vertical">
     <!-- Intact Financial Corporation -->
-    <div class="timeline-row">
+    <div class="timeline-row" data-aos="fade-right">
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <div class="timeline-header">
@@ -481,7 +343,7 @@
       </div>
     </div>
     <!-- LCM Security -->
-    <div class="timeline-row">
+    <div class="timeline-row" data-aos="fade-left">
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <div class="timeline-header">
@@ -498,7 +360,7 @@
       </div>
     </div>
     <!-- HDFC Bank -->
-    <div class="timeline-row">
+    <div class="timeline-row" data-aos="fade-right">
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <div class="timeline-header">
@@ -517,118 +379,8 @@
   </div>
 </section>
 
-<style>
-.timeline-vertical {
-  position: relative;
-  margin: 50px 0 0 0;
-  padding-left: 32px;
-  border-left: 4px solid #007acc;
-}
-
-.timeline-row {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 42px;
-}
-
-.timeline-dot {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #fff;
-  border: 4px solid #007acc;
-  position: absolute;
-  left: -43px;
-  top: 28px;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-}
-
-.timeline-card {
-  background: #f7fafc;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(0,122,204,0.07);
-  padding: 18px 20px 14px 20px;
-  margin-left: 28px;
-  min-width: 270px;
-  max-width: 430px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.timeline-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 7px;
-}
-.timeline-logo {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  background: #fff;
-  object-fit: contain;
-  border: 1.5px solid #e5e8ef;
-  box-shadow: 0 2px 8px rgba(0,122,204,0.07);
-}
-.timeline-company {
-  font-weight: 700;
-  color: #007acc;
-  font-size: 1.11rem;
-  display: block;
-}
-.timeline-dates {
-  font-size: 0.93rem;
-  color: #6b7280;
-  display: block;
-}
-.timeline-role {
-  font-size: 1.04rem;
-  font-weight: bold;
-  color: #222f3e;
-  margin-bottom: 2px;
-  display: block;
-}
-.timeline-desc {
-  font-size: 0.97rem;
-  color: #5d6b7a;
-  margin-top: 3px;
-  display: block;
-}
-
-/* Responsive for mobile */
-@media (max-width: 650px) {
-  .timeline-vertical {
-    padding-left: 18px;
-    border-left-width: 3px;
-  }
-  .timeline-row {
-    margin-bottom: 28px;
-  }
-  .timeline-dot {
-    width: 15px;
-    height: 15px;
-    border-width: 3px;
-    left: -26px;
-    top: 20px;
-  }
-  .timeline-card {
-    margin-left: 12px;
-    min-width: 180px;
-    max-width: 99vw;
-    padding: 12px 10px 10px 12px;
-  }
-  .timeline-logo {
-    width: 28px;
-    height: 28px;
-    border-radius: 5px;
-  }
-}
-</style>
 <!-- Tools and Technologies -->
-<section id="tools">
+<section id="tools" data-aos="fade-up">
   <h2>🧰 Stuff I Tame Threats With...</h2>
   <div class="tools-grid">
     <div class="tool-card">
@@ -695,7 +447,7 @@
 </section>
 
 <!-- Education -->
-<section id="education">
+<section id="education" data-aos="fade-up">
   <h2>🧠📚 Where It All Started...</h2>
   <div class="value-box">
     <ul style="list-style:none; padding-left:0;">
@@ -716,7 +468,7 @@
 </section>
   
 <!-- Hobbies -->
-<section id="hobbies">
+<section id="hobbies" data-aos="fade-up">
   <h2>🧘 Off the clock, when I'm not hunting threats...</h2>
   <ul style="font-size:1.15rem; line-height: 2; list-style: none; padding-left: 0; margin-top: 18px;">
     <li>🎥 Watching anime series</li>
@@ -726,12 +478,11 @@
 </section>
   
 <!-- Contact -->
-<section id="contact">
+<section id="contact" data-aos="fade-up">
   <h2>📬 Slide Into My Inbox</h2>
   <nav class="contact-links" aria-label="Contact Links">
     <a href="mailto:manan@email.com" title="Email Manan Lodhia">Email</a>
     <a href="https://www.linkedin.com/in/manan-lodhia" target="_blank" rel="noopener" title="LinkedIn Profile">LinkedIn</a>
-    <!-- <a href="https://github.com/yourusername" target="_blank" rel="noopener" title="GitHub Profile">GitHub</a> -->
   </nav>
 </section>
 
@@ -741,7 +492,8 @@
   <p id="quote"></p>
 </footer>
 
-<!-- AOS Animation -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
