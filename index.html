@@ -263,75 +263,47 @@
       margin: 0 auto;
       max-width: 900px;
     }
-
-    
-    /* Tools Section (image 1) */
-    .tools-cards-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 2.1rem;
-      font-weight: 800;
-      color: #1976D2;
-      margin-bottom: 0.7rem;
-      justify-content: center;
-      font-family: inherit;
-    }
-    .tools-divider {
-      width: 52px;
-      height: 3px;
-      background: #1976D2;
-      margin: 0.35rem auto 1.6rem auto;
-      border-radius: 2px;
-    }
-    .tools-category {
-      font-weight: 700;
-      color: #1976D2;
-      font-size: 1.13rem;
-      margin-bottom: 8px;
-      margin-top: 1.2em;
-      font-family: inherit;
-    }
-    .tools-list {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-      font-size: 1.02rem;
-      color: #222f3e;
-    }
-    .tools-list li {
-      margin-bottom: .3em;
-      padding-left: 0.7em;
-      position: relative;
-    }
-    .tools-list li:before {
-      content: "•";
-      color: #1976D2;
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-    .tools-cards-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0 5vw;
-      justify-content: flex-start;
-      margin: 0 auto;
+    /*Tools updated*/
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.3rem;
+      margin-top: 1.6rem;
       max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .tools-cards-col {
-      flex: 1 1 220px;
-      min-width: 220px;
-      max-width: 280px;
-      margin-bottom: 1.7rem;
+    .tool-card {
+      background: #f7fafc;
+      border-radius: 13px;
+      box-shadow: 0 2px 9px rgba(0,122,204,0.07);
+      padding: 1rem 1rem 0.7rem 1rem;
+      transition: .16s;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
-    @media (max-width: 1200px) {
-      .tools-cards-row { gap: 0 2vw; }
-      .tools-cards-col { min-width: 160px; max-width: 99vw;}
+    .tool-card:hover {
+      box-shadow: 0 8px 28px rgba(0,122,204,0.13);
+      background: #f1f8fd;
+      transform: translateY(-3px) scale(1.03);
     }
-    @media (max-width: 700px) {
-      .tools-cards-row { flex-direction: column; gap: 0.7rem;}
-      .tools-cards-col { min-width: 0; max-width: 99vw;}
+    .tool-icon {
+      font-size: 1.55rem;
+      margin-bottom: 8px;
+    }
+    .tool-card h3 {
+      font-size: 1.06rem;
+      color: #007acc;
+      margin-bottom: 6px;
+      margin-top: 0;
+      font-weight: 700;
+    }
+    .tool-card p {
+      color: #475569;
+      font-size: 0.99rem;
+      margin: 0;
     }
     /* Contact */
     .contact-links {
@@ -507,132 +479,69 @@
 }
 </style>
 
-  <!-- TOOLS (as per image 1) -->
+<!-- TOOLS / SKILLS -->
   <section class="section" id="tools" data-aos="fade-up">
-    <div class="tools-cards-title">
-      <span style="font-size:2.1rem;">🛡️</span> Stuff I Tame Threats With...
-    </div>
-    <div class="tools-divider"></div>
-    <div class="tools-cards-row">
-      <div class="tools-cards-col">
-        <div class="tools-category">SIEM / SOAR</div>
-        <ul class="tools-list">
-          <li>Microsoft Sentinel (Azure)</li><br>
-          <li>IBM QRadar</li><br>
-          <li>Elastic SIEM</li><br>
-          <li>Cortex XSOAR</li><br>
-          <li>FortiSIEM</li><br>
-        </ul>
+    <h2 class="section-title">🧰 Stuff I Tame Threats With...</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <span class="tool-icon">🔎</span>
+        <h3>SIEM/SOAR</h3>
+        <p>Microsoft Sentinel (Azure), IBM QRadar, Elastic SIEM, Cortex XSOAR, FortiSIEM</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Endpoint Detection & Response</div>
-        <ul class="tools-list">
-          <li>CrowdStrike Falcon</li><br>
-          <li>Microsoft Defender for Endpoint</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🛡️</span>
+        <h3>Endpoint Detection & Response</h3>
+        <p>CrowdStrike Falcon, Microsoft Defender for Endpoint</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Threat Intel & Sharing</div>
-        <ul class="tools-list">
-          <li>Recorded Future</li><br>
-          <li>Anomali</li><br>
-          <li>Mandiant</li><br>
-          <li>CCTX</li><br>
-          <li>FS-ISAC</li><br>
-          <li>CCCS</li><br>
-          <li>ENISA</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🌐</span>
+        <h3>Threat Intel & Sharing</h3>
+        <p>Recorded Future, Anomali, Mandiant, CCTX, FS-ISAC, CCCS, ENISA</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Threat Hunting & Detection</div>
-        <ul class="tools-list">
-          <li>Atomic Red Team</li><br>
-          <li>Elastic Stack</li><br>
-          <li>YARA</li><br>
-          <li>Sigma</li><br>
-          <li>CQ</li><br>
-          <li>KQL</li><br>
-          <li>OSQuery</li><br>
-          <li>Cymulate</li><br>
-          <li>PowerShell</li><br>
-          <li>Python</li><br>
-          <li>Bash</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🕵️</span>
+        <h3>Threat Hunting & Detection</h3>
+        <p>Atomic Red Team, Elastic Stack, YARA, Sigma, CQ, KQL, OSQuery, Cymulate, PowerShell, Python, Bash</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Network Security</div>
-        <ul class="tools-list">
-          <li>Cisco Secure</li><br>
-          <li>Palo Alto Networks</li><br>
-          <li>Barracuda CloudGen</li><br>
-          <li>GlobalProtect</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🌐</span>
+        <h3>Network Security</h3>
+        <p>Cisco Secure, Palo Alto Networks, Barracuda CloudGen, GlobalProtect</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Penetration Testing</div>
-        <ul class="tools-list">
-          <li>Nmap</li><br>
-          <li>Metasploit</li><br>
-          <li>Hashcat</li><br>
-          <li>Burp Suite</li><br>
-          <li>Wireshark</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🧰</span>
+        <h3>Penetration Testing</h3>
+        <p>Nmap, Metasploit, Hashcat, Burp Suite, Wireshark</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Compliance & Frameworks</div>
-        <ul class="tools-list">
-          <li>PCI-DSS</li><br>
-          <li>GDPR</li><br>
-          <li>ISO/IEC 27001</li><br>
-          <li>HIPAA</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">📜</span>
+        <h3>Compliance & Frameworks</h3>
+        <p>PCI-DSS, GDPR, ISO/IEC 27001, HIPAA</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Email Security</div>
-        <ul class="tools-list">
-          <li>FortiMail</li><br>
-          <li>Proofpoint</li><br>
-          <li>Microsoft Defender for O365</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">📧</span>
+        <h3>Email Security</h3>
+        <p>FortiMail, Proofpoint, Microsoft Defender for O365</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Cloud Security & SaaS</div>
-        <ul class="tools-list">
-          <li>Azure Security Center</li><br>
-          <li>Prisma Cloud</li><br>
-          <li>MFA</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">☁️</span>
+        <h3>Cloud Security & SaaS</h3>
+        <p>Azure Security Center, Prisma Cloud, MFA</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Reporting & Collaboration</div>
-        <ul class="tools-list">
-          <li>Power BI</li><br>
-          <li>Visio</li><br>
-          <li>Confluence</li><br>
-          <li>Jira</li><br>
-          <li>ServiceNow</li><br>
-          <li>ConnectWise</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">📊</span>
+        <h3>Reporting & Collaboration</h3>
+        <p>Power BI, Visio, Confluence, Jira, ServiceNow, ConnectWise</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Vuln Mgmt & Scanning</div>
-        <ul class="tools-list">
-          <li>Qualys VMDR</li><br>
-          <li>Nessus</li><br>
-          <li>Rapid7 Nexpose</li><br>
-          <li>Nexus IQ</li><br>
-          <li>Nmap</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🔍</span>
+        <h3>Vuln Mgmt & Scanning</h3>
+        <p>Qualys VMDR, Nessus, Rapid7 Nexpose, Nexus IQ, Nmap</p>
       </div>
-      <div class="tools-cards-col">
-        <div class="tools-category">Soft Skills</div>
-        <ul class="tools-list">
-          <li>Problem-solving</li><br>
-          <li>Communication</li><br>
-          <li>Multitasking</li><br>
-          <li>Presentations</li><br>
-          <li>Collaboration</li><br>
-        </ul>
+      <div class="tool-card">
+        <span class="tool-icon">🤝</span>
+        <h3>Soft Skills</h3>
+        <p>Problem-solving, Communication, Multitasking, Presentations, Collaboration</p>
       </div>
     </div>
   </section>
